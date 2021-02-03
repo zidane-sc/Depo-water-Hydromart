@@ -123,7 +123,7 @@
                 <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
                     <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
                         <div class="card-body">
-                            <span class="tx-bold tx-20  d-block  tx-inverse ">Hayyu</span>
+                            <span class="tx-bold tx-20  d-block  tx-inverse ">Meluncur</span>
                             <div class="d-block tx-center">
                                 <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital"
                                     id="totalizer">-</span> <span class="tx-black">m3</span>
