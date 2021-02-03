@@ -48,7 +48,7 @@
                                         </div>
                                     </h5>
                                 </td> -->
-                                
+
 
                             </tr>
                             <tr>
@@ -56,7 +56,7 @@
                             </tr>
                         </table>
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
@@ -64,14 +64,14 @@
                         <img src="{{asset('backend/images/icon/gateway-2.png')}}" class="ht-70 mg-r-20" alt="">
                         <table>
                             <tr class="ht-70">
-                               
+
                                 <td>
-                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Device Status : 
+                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Device Status :
                                         <div id="device-status" class="tx-left  mg-t-5 tx-15">
                                         </div>
                                     </h5>
                                 </td>
-                                
+
 
                             </tr>
                             <tr>
@@ -79,18 +79,18 @@
                             </tr>
                         </table>
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
                         style="   ">
-                        <i class="fa fa-clock fa-4x mg-t-7 mg-r-20"></i> 
+                        <i class="fa fa-clock fa-4x mg-t-7 mg-r-20"></i>
                         <table>
                             <tr class="ht-70">
-                                
+
                                 <td>
-                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Datetime : 
-                                        <div class=" tx-left  mg-t-5 tx-15 text-success" id="tstamp"> 
+                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Datetime :
+                                        <div class=" tx-left  mg-t-5 tx-15 text-success" id="tstamp">
                                         </div>
                                     </h5>
                                 </td>
@@ -101,7 +101,7 @@
                             </tr>
                         </table>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -123,7 +123,18 @@
                 <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
                     <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
                         <div class="card-body">
-                            <span class="tx-bold tx-20  d-block  tx-inverse ">Meluncur</span>
+                            <span class="tx-bold tx-20  d-block  tx-inverse ">TDS</span>
+                            <div class="d-block tx-center">
+                                <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital"
+                                    id="TDS">-</span> <span class="tx-black">m3</span>
+                            </div>
+                        </div><!-- card-body -->
+                    </div><!-- card -->
+                </div>
+                <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
+                    <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
+                        <div class="card-body">
+                            <span class="tx-bold tx-20  d-block  tx-inverse ">Totalizer</span>
                             <div class="d-block tx-center">
                                 <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital"
                                     id="totalizer">-</span> <span class="tx-black">m3</span>
@@ -176,7 +187,8 @@
         $('#ph').text(fix_val(data.ph, 2))
         $('#tss').text(fix_val(data.tss, 1))
         $('#amonia').text(fix_val(data.amonia, 2))
-        $('#cod').text(fix_val(data.cod, 1))
+        $('#TDS').text(fix_val(data.cod, 1))
+        // $('#cod').text(fix_val(data.cod, 1))
         $('#flow_meter').text(fix_val(data.flow_meter, 2))
 
         // let totalizer;
@@ -258,7 +270,7 @@
     setInterval(() => {
         readTotalizer();
     }, interval);
-    
+
     function readTotalizer() {
         axios.get(`{{url('/')}}` + '/api/totalizer')
             .then(function (response) {

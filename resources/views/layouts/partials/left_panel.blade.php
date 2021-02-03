@@ -45,7 +45,7 @@
                 <span class="menu-item-label">Trending Report</span>
             </a><!-- br-menu-link -->
         </li><!-- br-menu-item -->
-        <li class="br-menu-item">
+        {{-- <li class="br-menu-item">
             <a href="{{url('alarm/alarm-list')}}" class="br-menu-link rounded-10">
                                 <i class="menu-item-icon icon ion-ios-alarm-outline tx-20"></i>
 
@@ -64,6 +64,13 @@
             <a href="{{url('api/connection-logs')}}" class="br-menu-link rounded-10">
                 <i class="menu-item-icon icon ion-wifi tx-24"></i>
                 <span class="menu-item-label">Connection Logs</span>
+            </a><!-- br-menu-link -->
+        </li><!-- br-menu-item --> --}}
+
+        <li class="br-menu-item">
+            <a href="#" class="br-menu-link rounded-10">
+                <i class="menu-item-icon icon ion-ios-cloud-upload-outline tx-24"></i>
+                <span class="menu-item-label">Consumtion</span>
             </a><!-- br-menu-link -->
         </li><!-- br-menu-item -->
 
@@ -87,7 +94,7 @@
                 @csrf
             </form>
         </li> -->
-        <li class="br-menu-item" >
+        {{-- <li class="br-menu-item" >
             <a onclick="logOut()" class="br-menu-link rounded-10">
                 <i class="menu-item-icon icon ion-power tx-20"></i>
                 <span class="menu-item-label tx-bold">Logout</span>
@@ -95,7 +102,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-        </li>
+        </li> --}}
 
     </ul><!-- br-sideleft-menu -->
 
