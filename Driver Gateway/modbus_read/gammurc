@@ -1,0 +1,4 @@
+[gammu]
+port = COM7
+connection = at115200
+model = at

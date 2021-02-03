@@ -1,0 +1,80 @@
+a {
+    color: #272727;
+    /* font-weight: bold; */
+font-weight: 400;
+    text-decoration: none
+}
+
+a:hover {
+    color: #3599dc;
+    text-decoration: none
+}
+
+
+.content {
+    display: block;
+    width: 1200px;
+    background: rgb(53, 153, 220);
+    padding: 0.2em;
+    overflow: hidden;
+    margin: 0 auto;
+
+}
+
+.container-mar {
+    width: 100%;
+    background: #f1f1f1;
+    float: left;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 45px;
+    position: relative;
+    cursor: pointer;
+}
+
+.marquee-sibling {
+    padding: 0;
+    background: rgb(53, 153, 220);
+    width: 20%;
+    height: 45px;
+    line-height: 42px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+    float: left;
+    left: 0;
+    z-index: 99;
+}
+
+.marquee,
+*[class^="marquee"] {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+}
+
+.marquee {
+    margin-left: 25%;
+}
+
+.marquee-content-items {
+    width: 100%;
+    display: inline-block;
+    padding: 5px;
+    margin: 0;
+    height: 45px;
+    position: relative;
+}
+
+.marquee-content-items li {
+    display: inline-block;
+    line-height: 35px;
+    color: #272727;
+}
+
+.marquee-content-items li:after {
+    content: "|";
+    margin: 0 1em;
+}
