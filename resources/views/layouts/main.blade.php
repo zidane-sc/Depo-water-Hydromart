@@ -162,7 +162,7 @@
             $.confirm({
                 theme: 'supervan',
                 title: 'Confirm!',
-                
+
                 content: 'Are you sure you want to exit the web?',
                 buttons: {
                     confirm: function () {

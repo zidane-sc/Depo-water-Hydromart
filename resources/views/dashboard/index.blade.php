@@ -16,6 +16,19 @@
 
     }
 
+.wrapper {
+  background-color: #2d4e5a;
+  height: 250px;
+  width: 200px;
+  position: relative;
+}
+/* .wrapper2 {
+  background-color: #2d4e5a;
+  height: 200px;
+  width: 200px;
+  position: relative;
+} */
+
 </style>
 @endsection
 
@@ -146,6 +159,31 @@
             </div>
         </div>
 
+{{-- -------------------------------------------------------------------------------------------------------------------------------- --}}
+
+        <div class="bg-crystal-clear text-white rounded-20 pd-20 mg-t-50 animated fadeInUp ">
+            <div class="d-flex  bg-royal rounded-20 pd-10 text-white wd-200 animated fadeInDown mx-auto d-block"
+                style="margin-top: -50px;    box-shadow: -2px 13px 16px 0px rgba(0, 0, 0, 0.21);">
+                <img src="{{asset('backend/images/dashboard/monitoring.png')}}" class="ht-50 rounded-circle" alt="">
+                <h4 class="mg-b-0 mg-t-10 mg-l-10" style="   letter-spacing: 1px;">{{$page_title2}}</h4>
+            </div>
+            <div class="row row-sm">
+                <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
+                    <div class="row row-sm">
+                        <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
+                            <div id="wrapper" class="wrapper mx-auto">
+                            </div>
+                        </div>
+                        {{-- <div class="col-lg-6 col-xs-12 col-sm-12  mg-t-30">
+                            <div id="wrapper" class="wrapper">
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
 
 
 
@@ -165,6 +203,10 @@
 
 
 @push('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.js"></script>
+<script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+<script src="{{asset('backend/js/water-tank/water-tank.js')}}"></script>
+
 
 <script>
     $('#socket-status').html(
@@ -302,6 +344,7 @@
                 })
             });
     }
+
 
 </script>
 @endpush

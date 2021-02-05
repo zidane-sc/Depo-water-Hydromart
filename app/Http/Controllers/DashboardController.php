@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $this->middleware('auth');
 
         // $this->middleware('privilege:Dashboard');
-       
+
     }
 
     public function __invoke(Request $request)
@@ -28,9 +28,9 @@ class DashboardController extends Controller
 
 
         // $data_reset = \App\ResetTotalizer::orderBy('id','desc')->take(1)->first();
-        
-        
-        // if ($data_reset) 
+
+
+        // if ($data_reset)
         //     $id_reset = $data_reset->logs_id;
         // else
         //     $id_reset = 0;
@@ -44,18 +44,19 @@ class DashboardController extends Controller
         //     $totalizer += ($dataLog->flow_meter/3600)*60;
         // }
         // $data['totalizer'] = number_format($totalizer,1,',','.');
-        
-        
-        
 
-        
+
+
+
+
         $data['users'] = Users::paginate(5);
         $data['page_title'] = 'Dashboard';
+        $data['page_title2'] = 'Water Tank';
         $data['departements'] = Departements::all();
         $data['sensors'] = \App\Sensor::orderBy('id','asc')->whereSensorStatus(1)->get();
         return view('dashboard.index', $data);
     }
 
-    
-    
+
+
 }
