@@ -70,7 +70,7 @@
                         </table>
                     </div>
                 </div> --}}
-                <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+                <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
                         style="   ">
                         <img src="{{asset('backend/images/icon/gateway-2.png')}}" class="ht-70 mg-r-20" alt="">
