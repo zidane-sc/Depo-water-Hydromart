@@ -274,13 +274,13 @@
 
         $('#tstamp').text(data.tstamp)
         if (data.tag_name === 'level_tank_1') {
-            $('#level_tank_1').text(fix_val(data.value, 2))
+            $('#level_tank_1').text(data.value)
         } else if (data.tag_name === 'level_tank_2') {
-            $('#level_tank_2').text(fix_val(data.value, 2))
+            $('#level_tank_2').text(data.value)
         } else if (data.tag_name === 'totalizer') {
-            $('#flow_rate').text(fix_val(data.value, 2))
+            $('#flow_rate').text(data.value)
         } else {
-            $('#totalizer').text(fix_val(data.value, 2))
+            $('#totalizer').text(data.value)
         }
 
 
