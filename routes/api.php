@@ -60,3 +60,8 @@ Route::post('database/backup', 'BackupController@backup');
 // -- RESET TOTALIZER
 Route::get('totalizer/reset', 'SensorController@resetTotalizer');
 Route::get('totalizer', 'SensorController@summaryTotalizer');
+
+
+// --- WEBHOOK
+Route::post('webhook', 'WebhookController@WebHook');
+

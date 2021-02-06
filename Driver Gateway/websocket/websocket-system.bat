@@ -1,5 +1,5 @@
 
 @echo off
 :Restart
- node websocket.js
+ node websocket-depo.js
 goto Restart

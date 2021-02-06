@@ -16,13 +16,14 @@
 
     }
 
-.wrapper {
-  background-color: #2d4e5a;
-  height: 250px;
-  width: 200px;
-  position: relative;
-}
-/* .wrapper2 {
+    .wrapper {
+        background-color: #2d4e5a;
+        height: 250px;
+        width: 200px;
+        position: relative;
+    }
+
+    /* .wrapper2 {
   background-color: #2d4e5a;
   height: 200px;
   width: 200px;
@@ -119,21 +120,20 @@
 
             </div>
             <div class="row row-sm">
-                @foreach ($sensors as $sensor)
+                {{-- @foreach ($sensors as $sensor)
                 <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
                     <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
                         <div class="card-body">
                             <span class="tx-bold tx-20  d-block  tx-inverse ">{{$sensor->sensor_display}}</span>
-                            <div class="d-block tx-center">
-                                <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital"
-                                    id="{{$sensor->sensor_name}}">-</span> <span
-                                    class="tx-black">{{$sensor->unit}}</span>
-                            </div>
-                        </div><!-- card-body -->
-                    </div><!-- card -->
+                <div class="d-block tx-center">
+                    <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital"
+                        id="{{$sensor->sensor_name}}">-</span> <span class="tx-black">{{$sensor->unit}}</span>
                 </div>
-                @endforeach
-                <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
+            </div><!-- card-body -->
+        </div><!-- card -->
+    </div>
+    @endforeach --}}
+    {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
                     <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
                         <div class="card-body">
                             <span class="tx-bold tx-20  d-block  tx-inverse ">TDS</span>
@@ -143,8 +143,8 @@
                             </div>
                         </div><!-- card-body -->
                     </div><!-- card -->
-                </div>
-                <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
+                </div> --}}
+    {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
                     <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
                         <div class="card-body">
                             <span class="tx-bold tx-20  d-block  tx-inverse ">Totalizer</span>
@@ -154,40 +154,85 @@
                             </div>
                         </div><!-- card-body -->
                     </div><!-- card -->
-                </div>
+                </div> --}}
 
-            </div>
-        </div>
+
+    <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+        <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
+            <div class="card-body">
+                <span class="tx-bold tx-20  d-block  tx-inverse ">LEVEL TANK 1</span>
+                <div class="d-block tx-center">
+                    <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="level_tank_1">-</span>
+                    <span class="tx-black">l</span>
+                </div>
+            </div><!-- card-body -->
+        </div><!-- card -->
+    </div>
+    <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+        <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
+            <div class="card-body">
+                <span class="tx-bold tx-20  d-block  tx-inverse ">LEVEL TANK 2</span>
+                <div class="d-block tx-center">
+                    <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="level_tank_2">-</span>
+                    <span class="tx-black">l</span>
+                </div>
+            </div><!-- card-body -->
+        </div><!-- card -->
+    </div>
+    <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+        <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
+            <div class="card-body">
+                <span class="tx-bold tx-20  d-block  tx-inverse ">FLOW RATE</span>
+                <div class="d-block tx-center">
+                    <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="flow_rate">-</span>
+                    <span class="tx-black">l</span>
+                </div>
+            </div><!-- card-body -->
+        </div><!-- card -->
+    </div>
+    <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+        <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
+            <div class="card-body">
+                <span class="tx-bold tx-20  d-block  tx-inverse ">TOTALIZER</span>
+                <div class="d-block tx-center">
+                    <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="totalizer">-</span>
+                    <span class="tx-black">mg/l</span>
+                </div>
+            </div><!-- card-body -->
+        </div><!-- card -->
+    </div>
+</div>
+</div>
 
 {{-- -------------------------------------------------------------------------------------------------------------------------------- --}}
 
-        <div class="bg-crystal-clear text-white rounded-20 pd-20 mg-t-50 animated fadeInUp ">
-            <div class="d-flex  bg-royal rounded-20 pd-10 text-white wd-200 animated fadeInDown mx-auto d-block"
-                style="margin-top: -50px;    box-shadow: -2px 13px 16px 0px rgba(0, 0, 0, 0.21);">
-                <img src="{{asset('backend/images/dashboard/monitoring.png')}}" class="ht-50 rounded-circle" alt="">
-                <h4 class="mg-b-0 mg-t-10 mg-l-10" style="   letter-spacing: 1px;">{{$page_title2}}</h4>
-            </div>
+<div class="bg-crystal-clear text-white rounded-20 pd-20 mg-t-50 animated fadeInUp ">
+    <div class="d-flex  bg-royal rounded-20 pd-10 text-white wd-200 animated fadeInDown mx-auto d-block"
+        style="margin-top: -50px;    box-shadow: -2px 13px 16px 0px rgba(0, 0, 0, 0.21);">
+        <img src="{{asset('backend/images/dashboard/monitoring.png')}}" class="ht-50 rounded-circle" alt="">
+        <h4 class="mg-b-0 mg-t-10 mg-l-10" style="   letter-spacing: 1px;">{{$page_title2}}</h4>
+    </div>
+    <div class="row row-sm">
+        <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
             <div class="row row-sm">
                 <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
-                    <div class="row row-sm">
-                        <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
-                            <div id="wrapper" class="wrapper mx-auto">
-                            </div>
-                        </div>
-                        {{-- <div class="col-lg-6 col-xs-12 col-sm-12  mg-t-30">
+                    <div id="wrapper" class="wrapper mx-auto">
+                    </div>
+                </div>
+                {{-- <div class="col-lg-6 col-xs-12 col-sm-12  mg-t-30">
                             <div id="wrapper" class="wrapper">
                             </div>
                         </div> --}}
-                    </div>
-                </div>
             </div>
-
         </div>
-
-
-
-
     </div>
+
+</div>
+
+
+
+
+</div>
 
 
 </div>
@@ -220,18 +265,24 @@
         `<span class="float-right wd-100p tx-16 text-danger mg-l-10 animated fadeIn">Offline<span class="square-8 bg-danger rounded-circle"></span> </span>`
     )
     var isConnect = false;
-    socket.on('eh-water', (data) => {
+    socket.on('air-depo', (data) => {
+        console.log(data)
         isConnect = true;
         $('#device-status').html(
             `<span class="float-right wd-100p tx-16 text-success mg-l-10 ">Online<span class="square-8 bg-success rounded-circle"></span> </span>`
         )
+
         $('#tstamp').text(data.tstamp)
-        $('#ph').text(fix_val(data.ph, 2))
-        $('#tss').text(fix_val(data.tss, 1))
-        $('#amonia').text(fix_val(data.amonia, 2))
-        $('#TDS').text(fix_val(data.cod, 1))
-        // $('#cod').text(fix_val(data.cod, 1))
-        $('#flow_meter').text(fix_val(data.flow_meter, 2))
+        if (data.tag_name === 'level_tank_1') {
+            $('#level_tank_1').text(fix_val(data.value, 2))
+        } else if (data.tag_name === 'level_tank_2') {
+            $('#level_tank_2').text(fix_val(data.value, 2))
+        } else if (data.tag_name === 'totalizer') {
+            $('#flow_rate').text(fix_val(data.value, 2))
+        } else {
+            $('#totalizer').text(fix_val(data.value, 2))
+        }
+
 
         // let totalizer;
         // totalizer = (data.flow_meter / 3600) * 10;
@@ -307,7 +358,7 @@
 
 
     // --- Totalizer
-    let interval  = '{{$global_setting->db_log_interval}}'*10000;
+    let interval = '{{$global_setting->db_log_interval}}' * 10000;
     readTotalizer();
     setInterval(() => {
         readTotalizer();
@@ -317,7 +368,7 @@
         axios.get(`{{url('/')}}` + '/api/totalizer')
             .then(function (response) {
                 if (response.data.status == 200) {
-                     $('#totalizer').text(response.data.msg.totalizer)
+                    // $('#totalizer').text(response.data.msg.totalizer)
                 } else {
                     let errorMessage = JSON.parse(response.data.msg);
                     let msg = '';
@@ -344,7 +395,6 @@
                 })
             });
     }
-
 
 </script>
 @endpush

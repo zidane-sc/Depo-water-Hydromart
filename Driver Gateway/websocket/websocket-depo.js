@@ -12,33 +12,20 @@ var clear = require('clear');
 io.origins((origin, callback) => {
     callback(null, true);
 });
-var port = 1010;
+var port = 9090;
 
 server.listen(process.env.PORT || port, '0.0.0.0', function () {
     console.log('listening on *:' + port);
 });
 // WARNING: app.listen(80) will NOT work here!
 // konversi dari rest do\i broadcast ke socketio
-app.post("/eh-water", function (req, res) {
+app.post("/depo-air", function (req, res) {
     // clear();
     console.log(req.body);
-    io.to("all").emit("eh-water", req.body);
-    res.send("EH WATER OK");
+    io.to("all").emit("air-depo", req.body);
+    res.send("DEPO AIR OK");
 });
-
-app.post("/eh-water-alarm", function (req, res) {
-    clear();
-    console.log(req.body);
-    io.to("all").emit("eh-water-alarm", req.body);
-    res.send("EH ALARM SEND");
-});
-
-app.post("/eh-gateway-status", function (req, res) {
-    clear();
-    console.log(req.body);
-    io.to("all").emit("eh-gateway-status", req.body);
-    res.send("STATUS GATEWAY : " + req.body);
-});
+ 
 
 io.on("connection", function (socket) {
     let from = socket.handshake.query['from'];
