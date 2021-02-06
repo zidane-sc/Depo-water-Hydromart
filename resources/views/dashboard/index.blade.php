@@ -273,7 +273,7 @@
             $('#level_tank_1').text(data.value)
         } else if (data.tag_name === 'level_tank_2') {
             $('#level_tank_2').text(data.value)
-        } else if (data.tag_name === 'totalizer') {
+        } else if (data.tag_name === 'flow_rate') {
             $('#flow_rate').text(data.value)
         } else {
             $('#totalizer').text(data.value)
