@@ -202,7 +202,7 @@
 
 {{-- -------------------------------------------------------------------------------------------------------------------------------- --}}
 
-<div class="bg-crystal-clear text-white rounded-20 pd-20 mg-t-50 animated fadeInUp ">
+<div class="bg-crystal-clear text-white rounded-20 pd-20 mg-t-50 animated fadeInUp hilang ">
     <div class="d-flex  bg-royal rounded-20 pd-10 text-white wd-200 animated fadeInDown mx-auto d-block"
         style="margin-top: -50px;    box-shadow: -2px 13px 16px 0px rgba(0, 0, 0, 0.21);">
         <img src="{{asset('backend/images/dashboard/monitoring.png')}}" class="ht-50 rounded-circle" alt="">
@@ -270,13 +270,13 @@
 
         $('#tstamp').text(data.tstamp)
         if (data.tag_name === 'level_tank_1') {
-            $('#level_tank_1').text(data.value)
+            $('#level_tank_1').text(fix_val(data.value,2))
         } else if (data.tag_name === 'level_tank_2') {
-            $('#level_tank_2').text(data.value)
+            $('#level_tank_2').text(fix_val(data.value,2))
         } else if (data.tag_name === 'flow_rate') {
-            $('#flow_rate').text(data.value)
+            $('#flow_rate').text(fix_val(data.value,2))
         } else {
-            $('#totalizer').text(data.value)
+            $('#totalizer').text(fix_val(data.value,2))
         }
 
 
@@ -341,6 +341,7 @@
     });
 
     function fix_val(val, del = 2) {
+         val = parseInt(val)
         if (val != undefined || val != null) {
             var rounded = val.toFixed(del).toString().replace('.', ","); // Round Number
             return numberWithCommas(rounded); // Output Result

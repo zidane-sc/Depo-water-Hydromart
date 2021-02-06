@@ -8,7 +8,7 @@
         <div class="input-group   wd-100p transition " style="margin: auto;position: absolute;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-52%);border-right: 0px !Important;left: 60px;">
             
             <div class="wd-100p ht-100p   pd-5 pd-x-15">
-                Endress+Hauser Environmental Smart System
+                {{-- Endress+Hauser Environmental Smart System --}}
                 {{-- <img style="width:100px;" class="img-fluid" src="{{asset('Pertamina.png')}}" alt=""> --}}
             </div>
             {{-- <span class="tx-18"> EHESS</span> --}}
