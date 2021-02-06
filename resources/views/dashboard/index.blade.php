@@ -43,7 +43,7 @@
                 <h4 class="mg-b-0 mg-t-10 mg-l-10 " style="   letter-spacing: 1px;">{{$page_title}}</h4>
             </div>
             <div class="row row-sm">
-                <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+                {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
                         style="   ">
                         <img src="{{asset('backend/images/icon/gateway-2.png')}}" class="ht-70 mg-r-20" alt="">
@@ -66,12 +66,10 @@
 
                             </tr>
                             <tr>
-
                             </tr>
                         </table>
                     </div>
-
-                </div>
+                </div> --}}
                 <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
                         style="   ">
@@ -95,7 +93,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+                {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
                         style="   ">
                         <i class="fa fa-clock fa-4x mg-t-7 mg-r-20"></i>
@@ -111,12 +109,10 @@
 
                             </tr>
                             <tr>
-
                             </tr>
                         </table>
                     </div>
-
-                </div>
+                </div> --}}
 
             </div>
             <div class="row row-sm">
