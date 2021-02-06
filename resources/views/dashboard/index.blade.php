@@ -359,42 +359,8 @@
 
     // --- Totalizer
     let interval = '{{$global_setting->db_log_interval}}' * 10000;
-    readTotalizer();
-    setInterval(() => {
-        readTotalizer();
-    }, interval);
 
-    function readTotalizer() {
-        axios.get(`{{url('/')}}` + '/api/totalizer')
-            .then(function (response) {
-                if (response.data.status == 200) {
-                    // $('#totalizer').text(response.data.msg.totalizer)
-                } else {
-                    let errorMessage = JSON.parse(response.data.msg);
-                    let msg = '';
-                    for (const key in errorMessage) {
-                        msg += '<span class="d-block tx-danger mg-b-10">' + errorMessage[
-                                key][0] +
-                            '</span class="d-block tx-danger">';
-                    }
-                    $.alert({
-                        title: 'Error',
-                        content: msg,
-                    });
-                }
-            })
-            .catch(function (error) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Failed Update',
-                    text: error,
-                    confirmButtonColor: '#800050',
-                    confirmButtonText: 'Ok'
-                }).then((result) => {
-                    // location.reload();
-                })
-            });
-    }
+    
 
 </script>
 @endpush
