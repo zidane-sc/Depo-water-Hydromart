@@ -17,9 +17,11 @@ class CreateLogValuesTable extends Migration
             $table->bigIncrements('id');
             $table->string('device_name');
             $table->string('tag_name');
-            $table->string('time');
+            $table->string('time')->nullable();
             $table->string('project_id');
             $table->float('value');
+            $table->timestamps();
+
         });
     }
 
