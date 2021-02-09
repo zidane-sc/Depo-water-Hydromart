@@ -19,7 +19,7 @@ class TagController extends Controller
     
     public function test()
     {
-        $tags = ['level_tank_1', 'level_tank_2', 'flow_rate', 'totalizer'];
+        $tags = ['ultrasonic_sensor11', 'ultrasonic_sensor12', 'liter_permenit1', 'flow_litre1'];
         return json_encode($tags);
     }
 

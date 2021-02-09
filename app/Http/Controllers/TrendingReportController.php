@@ -24,7 +24,7 @@ class TrendingReportController extends Controller
     public function index()
     {
         $data['page_title'] = 'Trending Report';
-        $data['tags'] = ['level_tank_1', 'level_tank_2', 'flow_rate', 'totalizer'];
+        $data['tags'] = ['ultrasonic_sensor11', 'ultrasonic_sensor12', 'liter_permenit1', 'flow_litre1'];
         $data['date'] = date('Y-m-d ');
         $dateSelect = date('Y-m');
         // dd($dateSelect . date('-d'));
