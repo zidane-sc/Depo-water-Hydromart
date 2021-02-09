@@ -6,9 +6,9 @@
                     class="icon ion-navicon-round"></i></a></div>
 
         <div class="input-group   wd-100p transition " style="margin: auto;position: absolute;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-52%);border-right: 0px !Important;left: 60px;">
-            
+
             <div class="wd-100p ht-100p   pd-5 pd-x-15">
-                {{-- Endress+Hauser Environmental Smart System --}}
+                Smart Depo Water
                 {{-- <img style="width:100px;" class="img-fluid" src="{{asset('Pertamina.png')}}" alt=""> --}}
             </div>
             {{-- <span class="tx-18"> EHESS</span> --}}
@@ -30,7 +30,7 @@
             <div class="dropdown">
                <a id="theButton" href="#" target="_blank" class="pos-relative" data-toggle="dropdown">
                 <img src="{{asset('backend/images/icon/eh-icon.png')}}" class="ht-50" alt="">
-                
+
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-250 animated rounded-20">
                     <div class="tx-center">

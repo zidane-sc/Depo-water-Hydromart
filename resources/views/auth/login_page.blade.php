@@ -26,8 +26,8 @@
         </video><!-- /video -->
         <div class="overlay-body bg-black-6 d-flex align-items-center justify-content-center tx-black">
             <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 rounded-30 bg-white">
-                <img src="{{asset('backend/logo-eh.png')}}" class="img-fluid mg-b-20" alt="">
-                <div class=" tx-center tx-18  mg-b-5 "> 
+                <img src="{{asset('backend/images/logo/logo-Hydromart.jpg')}}" class="img-fluid mg-b-30" alt="">
+                <div class=" tx-center tx-18  mg-b-5 ">
                     <span class="tx-normal">Sign In </span>
                 </div>
 
