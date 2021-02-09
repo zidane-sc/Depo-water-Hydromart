@@ -85,7 +85,7 @@
         <div class=" text-white">
 
             <div class="row row-sm mg-b-30 ">
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang " style="z-index:999">
                     <a href="{{url('settings/device')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -99,7 +99,7 @@
                         </div><!-- card -->
                     </a>
                 </div>
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('settings/sensor')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -114,7 +114,7 @@
                     </a>
                 </div>
 
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('settings/api-config')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -130,7 +130,7 @@
                     </a>
                 </div>
 
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('settings/socket')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -144,7 +144,7 @@
                         </div><!-- card -->
                     </a>
                 </div>
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('alarm/alarm-setting')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -189,7 +189,7 @@
                 </div>
 
 
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('settings/database')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -205,7 +205,7 @@
                 </div>
 
                 @if (env('PRIVILEGE') == 'ON' || env('PRIVILEGE') == '1' )
-                    <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                    <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                         <a href="{{url('settings/privilege')}}">
                             <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                                 <div class="card-body d-flex">
@@ -223,7 +223,7 @@
                 @endif
 
                 @if (env('MAINTENANCE') == 'ON' || env('MAINTENANCE') == '1' )
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('settings/maintenance')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -241,7 +241,7 @@
                 @endif
 
                 @if (env('OTHER') == 'ON' || env('OTHER') == '1' )
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('settings/other')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
@@ -257,7 +257,7 @@
                 @endif
 
                 @if (env('GOIOT') == 'ON' || env('GOIOT') == '1' )
-                <div class="col-lg-3 mg-b-20 " style="z-index:999">
+                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
                     <a href="{{url('settings/goiot')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
