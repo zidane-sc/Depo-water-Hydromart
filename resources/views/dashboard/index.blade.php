@@ -269,13 +269,13 @@
         )
 
         $('#tstamp').text(data.tstamp)
-        if (data.tag_name === 'level_tank_1') {
+        if (data.tag_name === 'ultrasonic_sensor11') {
             $('#level_tank_1').text(fix_val(data.value,2))
-        } else if (data.tag_name === 'level_tank_2') {
+        } else if (data.tag_name === 'ultrasonic_sensor12') {
             $('#level_tank_2').text(fix_val(data.value,2))
-        } else if (data.tag_name === 'flow_rate') {
+        } else if (data.tag_name === 'liter_permenit1') {
             $('#flow_rate').text(fix_val(data.value,2))
-        } else {
+        } else if (data.tag_name === 'flow_litre1') {
             $('#totalizer').text(fix_val(data.value,2))
         }
 
