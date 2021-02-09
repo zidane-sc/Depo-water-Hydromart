@@ -41,6 +41,7 @@ Route::delete('tag/{id}', 'TagController@delete');
 Route::get('sensors', 'SensorController@active');
 Route::put('sensor/{id}', 'SensorController@update');
 
+Route::get('tags', 'TagController@test');
 
 // -- TRENDING
 Route::post('trending', 'TrendingReportController@trend');

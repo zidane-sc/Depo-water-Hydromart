@@ -349,7 +349,7 @@ function ModbusRead(iterator, optns, addressList) {
 
                         // -- Kirim data ke goiot
                         // mqttKita.publish("v2/5eb263e0ac09b50815596240/device2/direct/eh_ph", '100')
-                        mqttKita.publish("v2/5f8cf78f41a4c65b8428ebd7/MODBUS/json", JSON.stringify(dataGoiot))
+                        mqttKita.publish("v2/601db255623f1b65c9642800/DEMO_DEVICE/json", JSON.stringify(dataGoiot))
                         console.log("Goiot Send Success !");
                         // [{"tag":"my_tag_1","value":0, "time":"yyyy-MM-dd HH:mm:ss"},{"tag":"my_tag_2"," value":0,"time":"yyyy-MM-dd HH:mm:ss"}]
                     } catch (error) {

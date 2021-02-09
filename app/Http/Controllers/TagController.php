@@ -16,6 +16,12 @@ class TagController extends Controller
         // $this->middleware('privilege:TagEdit', ['only' => 'update']);
         // $this->middleware('privilege:TagDelete', ['only' => 'delete']);
     }
+    
+    public function test()
+    {
+        $tags = ['level_tank_1', 'level_tank_2', 'flow_rate', 'totalizer'];
+        return json_encode($tags);
+    }
 
     public function storeTag(Request $request)
     {

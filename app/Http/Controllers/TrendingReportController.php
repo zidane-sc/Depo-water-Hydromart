@@ -24,7 +24,7 @@ class TrendingReportController extends Controller
     public function index()
     {
         $data['page_title'] = 'Trending Report';
-        $data['sensors'] = \App\Sensor::orderBy('id', 'asc')->whereSensorStatus(1)->get();
+        $data['tags'] = ['level_tank_1', 'level_tank_2', 'flow_rate', 'totalizer'];
         $data['date'] = date('Y-m-d ');
         $dateSelect = date('Y-m');
         // dd($dateSelect . date('-d'));
@@ -39,7 +39,6 @@ class TrendingReportController extends Controller
 
     public function trend(Request $request)
     {
-
         $global_setting = \App\GlobalSetting::orderBy('id', 'desc')->first();
         $daterange = $request->daterange;
         if ($daterange == 'year') {
@@ -55,46 +54,38 @@ class TrendingReportController extends Controller
         }
 
         if ($request->daterange === 'day') {
-            $dataLogs = DB::table('log_reports')
+            $dataLogs = DB::table('log_values')
                 ->select(DB::raw("
-            date_trunc('" . $daterange . "',tstamp) +
-            (((date_part('minute', tstamp)::integer / 5::integer) * 5::integer)
-            || 'minutes')::interval AS datetime , 
-            avg(ph) as avg_ph,
-            avg(tss) as avg_tss,
-            avg(amonia) as avg_amonia,
-            avg(cod) as avg_cod,
-            avg(flow_meter) as avg_flow_meter,
-            max((flow_meter/3600)*" . $global_setting->db_log_interval . ") as totalizer
+            date_trunc('" . $daterange . "',created_at) as datetime,
+            tag_name,
+            avg(value)
             "))
-                ->where("tstamp", "LIKE", '%' . $request->date . '%')
-                ->groupBy('datetime')
+                ->where("tag_name", $request->tag)
+                ->where("created_at", "LIKE", '%' . $request->date . '%')
+                ->groupBy('datetime', 'tag_name')
                 ->orderBy('datetime', 'asc')
                 ->get();
         } else {
-            $dataLogs = DB::table('log_reports')
+            $dataLogs = DB::table('log_values')
                 ->select(DB::raw("
-            date_trunc('" . $daterange . "',tstamp) AS datetime , 
-            avg(ph) as avg_ph,
-            avg(tss) as avg_tss,
-            avg(amonia) as avg_amonia,
-            avg(cod) as avg_cod,
-            avg(flow_meter) as avg_flow_meter,
-            max((flow_meter/3600)*" . $global_setting->db_log_interval . ") as totalizer
+            date_trunc('" . $daterange . "',created_at) AS datetime ,
+            tag_name,
+            avg(value)
             "))
-                ->where("tstamp", "LIKE", '%' . $request->date . '%')
-                ->groupBy('datetime')
+            ->where("tag_name", $request->tag)
+                ->where("created_at", "LIKE", '%' . $request->date . '%')
+                ->groupBy('datetime', 'tag_name')
                 ->orderBy('datetime', 'asc')
                 ->get();
         }
 
-        $stackTstamp = [];
-        $stack_avg_ph = [];
-        $stack_avg_tss = [];
-        $stack_avg_amonia = [];
-        $stack_avg_cod = [];
-        $stack_avg_flow_meter = [];
 
+        $stackTstamp = [];
+        $value = [];
+        // $stack_avg_tss = [];
+        // $stack_avg_amonia = [];
+        // $stack_avg_cod = [];
+        // $stack_avg_flow_meter = [];
 
         foreach ($dataLogs as $log) {
             if ($daterange == 'year') {
@@ -106,40 +97,12 @@ class TrendingReportController extends Controller
             } else {
                 array_push($stackTstamp, date('Y-m-d H:i:s', strtotime($log->datetime)));
             }
-            array_push($stack_avg_ph, ($log->avg_ph === 'NaN' || $log->avg_ph === null) ? "0" : number_format((float)$log->avg_ph, 2, '.', ''));
-            array_push($stack_avg_tss, ($log->avg_tss === 'NaN' || $log->avg_tss === null) ? "0" : number_format((float)$log->avg_tss, 2, '.', ''));
-            array_push($stack_avg_amonia, ($log->avg_amonia === 'NaN' || $log->avg_amonia === null) ? "0" : number_format((float)$log->avg_amonia, 2, '.', ''));
-            array_push($stack_avg_cod, ($log->avg_cod === 'NaN' || $log->avg_cod === null) ? "0" : number_format((float)$log->avg_cod, 2, '.', ''));
-            array_push($stack_avg_flow_meter, ($log->avg_flow_meter === 'NaN' || $log->avg_flow_meter === null) ? "0" : number_format((float)$log->avg_flow_meter, 2, '.', ''));
+            array_push($value, ($log->avg === 'NaN' || $log->avg === null) ? "0" : number_format((float)$log->avg, 2, '.', ''));
+            // array_push($stack_avg_tss, ($log->avg_tss === 'NaN' || $log->avg_tss === null) ? "0" : number_format((float)$log->avg_tss, 2, '.', ''));
+            // array_push($stack_avg_amonia, ($log->avg_amonia === 'NaN' || $log->avg_amonia === null) ? "0" : number_format((float)$log->avg_amonia, 2, '.', ''));
+            // array_push($stack_avg_cod, ($log->avg_cod === 'NaN' || $log->avg_cod === null) ? "0" : number_format((float)$log->avg_cod, 2, '.', ''));
+            // array_push($stack_avg_flow_meter, ($log->avg_flow_meter === 'NaN' || $log->avg_flow_meter === null) ? "0" : number_format((float)$log->avg_flow_meter, 2, '.', ''));
         }
-
-        // -- QUERY TOTALIZER
-        if ($daterange == 'hour') {
-            $dateSelect = ($request->date);
-        } else {
-            $dateSelect1 = ($request->date);
-            $dateSelect  = $dateSelect1 . date('-d');
-        }
-        $dateSelectBefore = new DateTime($dateSelect . ' 07:00:00');
-        $dateSelectAfter = new DateTime($dateSelect . ' 06:59:59');
-        $datebefore = $dateSelectBefore->modify('-1 days')->format('Y-m-d H:i:s');
-        $dateafter  = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
-
-        if (date('Y-m-d') == $dateSelect) {
-            if (($dateSelect . date(' H:i:s')) < ($dateSelect . date(' 07:00:00'))) {
-                // $date_from = date('Y-m-d 07:00:00', strtotime("-1 days"));
-                $date_from = $datebefore;
-                $date_to = ($dateSelect . date(' 06:59:59'));
-            } else {
-                $date_from = (date('Y-m-d 07:00:00'));
-                $date_to = $dateafter;
-                // $date_to = date('Y-m-d 06:59:59', strtotime("+1 days"));
-            }
-        } else {
-            $date_from = $dateSelect . ' 07:00:00';
-            $date_to = $dateafter;
-        }
-
 
 
 
@@ -192,93 +155,56 @@ class TrendingReportController extends Controller
 
 
         // echo date("H:00", mktime($time + 1)) . '<br>';
-        if (date('Y-m-d') == $dateSelect) {
-            if (($dateSelect . date(' H:i:s')) < ($dateSelect . date(' 07:00:00'))) {
-                $dateafterTotalizer  = date('Y-m-d', strtotime($dateSelect . ' -1 day'));
-            } else {
-                $dateafterTotalizer  = date('Y-m-d', strtotime($dateSelect . ' +1 day'));
-            }
-        } else {
-            $dateafterTotalizer  = date('Y-m-d', strtotime($dateSelect . ' +1 day'));
-        }
 
-        $time = [
-            '07',
-            '08',
-            '09',
-            '10',
-            '11',
-            '13',
-            '14',
-            '15',
-            '16',
-            '17',
-            '18',
-            '19',
-            '20',
-            '21',
-            '22',
-            '23',
-            '00',
-            '01',
-            '02',
-            '03',
-            '04',
-            '05',
-            '06',
-        ];
-
-        foreach ($time as $value) {
-            if ($value == '00' || $value == '01' || $value == '02' || $value == '03' || $value == '04' || $value == '05' || $value == '06') {
-                array_push($tstamp_totalizer, $dateafterTotalizer . ' ' . $value . ':00');
-                $ttlzr = $this->sumTotalizerHour($dateafterTotalizer . ' ' . $value . ':00:00', $dateafterTotalizer . ' ' . $value . ':59:59');
-            } else {
-                array_push($tstamp_totalizer, $dateSelect . ' ' . $value . ':00');
-                $ttlzr = $this->sumTotalizerHour($dateSelect . ' ' . $value . ':00:00', $dateSelect . ' ' . $value . ':59:59');
-            }
+        // foreach ($time as $value) {
+        //     if ($value == '00' || $value == '01' || $value == '02' || $value == '03' || $value == '04' || $value == '05' || $value == '06') {
+        //         array_push($tstamp_totalizer, $dateafterTotalizer . ' ' . $value . ':00');
+        //         $ttlzr = $this->sumTotalizerHour($dateafterTotalizer . ' ' . $value . ':00:00', $dateafterTotalizer . ' ' . $value . ':59:59');
+        //     } else {
+        //         array_push($tstamp_totalizer, $dateSelect . ' ' . $value . ':00');
+        //         $ttlzr = $this->sumTotalizerHour($dateSelect . ' ' . $value . ':00:00', $dateSelect . ' ' . $value . ':59:59');
+        //     }
 
 
 
-            array_push($stack_totalizer, ($ttlzr === 'NaN' || $ttlzr === null) ? "0" : $ttlzr);
-        }
+        //     array_push($stack_totalizer, ($ttlzr === 'NaN' || $ttlzr === null) ? "0" : $ttlzr);
+        // }
 
 
-        $stack_totalizer = array_map(
-            function ($v) {
-                if ($v === 0) {
-                    return null;
-                }
-                return $v;
-            },
-            $stack_totalizer
-        );
+        // $stack_totalizer = array_map(
+        //     function ($v) {
+        //         if ($v === 0) {
+        //             return null;
+        //         }
+        //         return $v;
+        //     },
+        //     $stack_totalizer
+        // );
 
 
-        $result['test'] = $dateafterTotalizer;
-
-
-        if ($daterange == 'hour') {
-            $result['sensors']['totalizer'] = $stack_totalizer;
-            $result['sensors']['totalizer_tstamp']['tstamp'] = $tstamp_totalizer;
-        } else {
-            $totalizerMonthly = [];
-            foreach ($stackTstamp as $ts) {
-                array_push($totalizerMonthly, $this->sumTotalizer($ts));
-            }
-            $result['sensors']['totalizer'] = $totalizerMonthly;
-            $result['sensors']['totalizer_tstamp']['tstamp'] = $stackTstamp;
-        }
+        // if ($daterange == 'hour') {
+        //     $result['sensors']['totalizer'] = $stack_totalizer;
+        //     $result['sensors']['totalizer_tstamp']['tstamp'] = $tstamp_totalizer;
+        // } else {
+        //     $totalizerMonthly = [];
+        //     foreach ($stackTstamp as $ts) {
+        //         array_push($totalizerMonthly, $this->sumTotalizer($ts));
+        //     }
+        //     $result['sensors']['totalizer'] = $totalizerMonthly;
+        //     $result['sensors']['totalizer_tstamp']['tstamp'] = $stackTstamp;
+        // }
 
 
         // data passsing to view
-        $result['global']['tstamp'] = $stackTstamp;
-        $result['sensors']['ph'] = $stack_avg_ph;
-        $result['sensors']['tss'] = $stack_avg_tss;
-        $result['sensors']['amonia'] = $stack_avg_amonia;
-        $result['sensors']['cod'] = $stack_avg_cod;
-        $result['sensors']['flow_meter'] = $stack_avg_flow_meter;
+        $result['tstamp'] = $stackTstamp;
+        $result['tag_name'] = $request->tag;
+        $result['value'] = $value;
+        // $result['sensors']['tss'] = $stack_avg_tss;
+        // $result['sensors']['amonia'] = $stack_avg_amonia;
+        // $result['sensors']['cod'] = $stack_avg_cod;
+        // $result['sensors']['flow_meter'] = $stack_avg_flow_meter;
         // alarm setting
-        $result['alarms'] = AlarmSetting::all();
+        // $result['alarms'] = AlarmSetting::all();
         $result['daterange'] = $dataLogs;
 
         return json_encode($result);

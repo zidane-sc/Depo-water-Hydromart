@@ -56,21 +56,21 @@
                                     <label for="">Host :</label>
                                     <div class="input-group">
                                         <input type="text" name="host" class="form-control" placeholder="host name"
-                                            value="{{$goiot_setting->host}}">
+                                            value="{{old('host') ?? ($goiot_setting->host ?? '')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Device :</label>
                                     <div class="input-group">
                                         <input type="text" name="deviceid" class="form-control" placeholder="device id "
-                                            value="{{$goiot_setting->deviceid}}">
+                                            value="{{old('deviceid') ?? ($goiot_setting->deviceid ?? '')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Client Id :</label>
                                     <div class="input-group">
                                         <input type="text" name="clientid" class="form-control" placeholder="projectid#deviceid# "
-                                            value="{{$goiot_setting->clientid}}">
+                                            value="{{old('clientid') ?? ($goiot_setting->clientid ?? '')}}">
                                     </div>
                                     <small>projectid#deviceid#</small>
                                 </div>
@@ -79,14 +79,14 @@
                                     <label for="">Username :</label>
                                     <div class="input-group">
                                         <input type="text" name="username" class="form-control" placeholder="username"
-                                            value="{{$goiot_setting->username}}">
+                                            value="{{old('username') ?? ($goiot_setting->username ?? '')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Password/Mqtt Token :</label>
                                     <div class="input-group">
                                         <input type="text" name="password" class="form-control" placeholder="password"
-                                            value="{{$goiot_setting->password}}">
+                                            value="{{old('password') ?? ($goiot_setting->password ?? '')}}">
                                     </div>
                                 </div>
                                 <hr>
@@ -98,35 +98,35 @@
                                     <label for="">PH Tag :</label>
                                     <div class="input-group">
                                         <input type="text" name="ph_tag" class="form-control" placeholder="ph tag"
-                                            value="{{$goiot_setting->ph_tag}}">
+                                            value="{{old('ph_tag') ?? ($goiot_setting->ph_tag ?? '')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">TSS Tag :</label>
                                     <div class="input-group">
                                         <input type="text" name="tss_tag" class="form-control" placeholder="tss tag"
-                                            value="{{$goiot_setting->tss_tag}}">
+                                            value="{{old('tss_tag') ?? ($goiot_setting->tss_tag ?? '')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Amonia Tag :</label>
                                     <div class="input-group">
                                         <input type="text" name="amonia_tag" class="form-control"
-                                            placeholder="Amonia tag" value="{{$goiot_setting->amonia_tag}}">
+                                            placeholder="Amonia tag" value="{{old('amonia_tag') ?? ($goiot_setting->amonia_tag ?? '')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Cod Tag :</label>
                                     <div class="input-group">
                                         <input type="text" name="cod_tag" class="form-control" placeholder="Cod tag"
-                                            value="{{$goiot_setting->cod_tag}}">
+                                            value="{{old('cod_tag') ?? ($goiot_setting->cod_tag ?? '')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Flowmeter Tag :</label>
                                     <div class="input-group">
                                         <input type="text" name="flowmeter_tag" class="form-control"
-                                            placeholder="Flowmeter tag" value="{{$goiot_setting->flowmeter_tag}}">
+                                            placeholder="Flowmeter tag" value="{{old('flowmeter_tag') ?? ($goiot_setting->flowmeter_tag ?? '')}}">
                                     </div>
                                 </div>
                             </div>

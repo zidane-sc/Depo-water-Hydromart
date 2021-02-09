@@ -60,7 +60,7 @@
         <div class=" text-white">
 
             <div class="row row-sm mg-b-30 ">
-                <div class="col-lg-8" style="z-index:99">
+                <div class="col-lg-12" style="z-index:99">
                     <div class="card mg-b-20 rounded-20  tx-black shadow animated fadeInUp">
                         <div class="card-header  rounded-top-20  tx-medium bd-0 stx-18">
                             <i class="ion icon ion-calendar"></i> Filter Report
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4" style="z-index:99">
+                <div class="col-lg-4 hilang" style="z-index:99">
                     <div class="card  rounded-20  tx-black shadow animated fadeInUp">
                         <div class="card-header  rounded-top-20  tx-medium bd-0 stx-18">
                             <i class="ion icon ion-calendar"></i> Set Point Legend
@@ -120,19 +120,19 @@
                             <span class="float-right animated fadeIn wd-100p tx-20 mg-l-10 animated fadeIn">
                                 <span class="square-8 rounded-circle d-block"
                                     style="background: #EAD239;width: 20px;height: 20px;"></span>
-                                < </span> <span
+                                </span> <span
                                     class="float-right animated fadeIn wd-100p tx-20 mg-l-10 animated fadeIn">
                                     <span class="square-8 rounded-circle d-block"
                                         style="background: #E3892B;width: 20px;height: 20px;"></span>
-                                    <= </span> </div> </div> </div> </div> <div class="row row-sm">
+                                    </span> </div> </div> </div> </div> <div class="row row-sm">
 
 
                                         <div class="col-lg-12">
-                                            @foreach ($sensors as $sensor)
+                                            @foreach ($tags as $tag)
                                             <div
                                                 class="card royal text-white rounded-20 pd-20 mg-t-40 shadow animated fadeIn">
                                                  <div class="d-block text-right">
-                                                            <button data-toggle="tooltip" title="save images" class="btn btn-sm btn-info right" onclick="downloadImage('{{$sensor->sensor_name}}','{{$sensor->sensor_display}}')" type="button"
+                                                            <button data-toggle="tooltip" title="save images" class="btn btn-sm btn-info right" onclick="downloadImage('{{$tag}}','{{$tag}}')" type="button"
                                                              ><i class="icon ion-ios-download tx-20"></i></button>
                                                     </div>
                                                 <div class="text-center d-flex  bg-grandeur rounded-20 pd-10 text-white shadow"
@@ -141,43 +141,18 @@
                                                     <img src="{{asset('backend/images/icon/water.png')}}"
                                                         class="ht-40 rounded-circle" alt="">
                                                     <span class="tx-bold mg-b-0 mg-t-10 mg-l-5 "
-                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">{{$sensor->sensor_display}}
+                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">{{$tag}}
                                                     </span>
                                                 </div>
                                                 {{-- <p class="text-right hidden-sm-down" style="margin-top: -40px;">Tuesday ,21 April 2020</p> --}}
 
 
                                                 <div class="bg-royal pd-10 rounded-20 wd-100p mg-t-20 ht-500"
-                                                    id="{{$sensor->sensor_name}}" width="">
+                                                    id="{{$tag}}" width="">
                                                 </div>
 
                                             </div>
                                             @endforeach
-
-                                            <div class="card royal text-white rounded-20 pd-20 mg-t-40 shadow animated fadeIn totalizer"
-                                                id="full_totalizer">
-                                               <div class="d-block text-right">
-                                                    <button data-toggle="tooltip" title="save images" class="btn btn-sm btn-info right" onclick="downloadImage('totalizer','totalizer')" type="button"
-                                                     ><i class="icon ion-ios-download tx-20"></i></button>
-                                               </div>
-
-                                                <div class="text-center d-flex  bg-grandeur rounded-20 pd-10 text-white shadow"
-                                                    style="width:fit-content;margin-top: -40px;    box-shadow: -2px 13px 16px 0px rgba(0, 0, 0, 0.21);">
-                                                    <img src="{{asset('backend/images/icon/water.png')}}"
-                                                        class="ht-40 rounded-circle" alt="">
-                                                    <span class="tx-bold mg-b-0 mg-t-10 mg-l-5 "
-                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">Totalizer
-                                                    </span>
-                                                </div>
-                                                {{-- <p class="text-right hidden-sm-down" style="margin-top: -40px;">Tuesday ,21 April 2020</p> --}}
-
-
-                                                <div class="bg-royal pd-10 rounded-20 wd-100p mg-t-20 ht-500"
-                                                    id="totalizer" width="">
-                                                </div>
-                                            </div>
-
-
                                         </div>
                         </div>
                     </div>
@@ -193,7 +168,6 @@
 
         <script>
             // ----
-
             function downloadImage(el,name){
                     domtoimage.toBlob(document.getElementById(el))
                         .then(function (blob) {
@@ -222,24 +196,27 @@
                     date = $('#year').val()
                     typeGraph = 'line';
                 }
-                axios.get(`{{url('/')}}` + '/api/sensors')
+
+                
+
+            axios.get(`{{url('/')}}` + '/api/tags')
                     .then(async function (response) {
-                        let sensors = response.data;
-                        let allDataChart = await dataChart(daterange, date);
-                        // console.log(alarm);
-                        // console.log(allDataChart);
-                        for (const key in sensors) {
-                            let sensor = sensors[key];
-                            if ($('#' + sensor.sensor_name).length) {
-                                let alarm = filterAlarm(allDataChart.alarms, sensor.sensor_name)
-                                chart(sensor.sensor_name, sensor.sensor_display, allDataChart.global.tstamp,
-                                    allDataChart.sensors[sensor.sensor_name], alarm);
-                                resizeChart(sensor.sensor_name);
-                            }
+                        let tags = response.data;
+
+                        for (const key in tags) {
+                            let tag = tags[key];
+                            // console.log(tag);
+                            axios.post(`{{url('/')}}` + '/api/trending', {
+                                daterange: daterange,
+                                date: date,
+                                tag: tag,
+                            }).then(async function (response) {
+                                    trending = response.data
+                                    console.log(trending);
+                                    chart(trending.tag_name, trending.tag_name, trending.tstamp,trending.value);
+                                    resizeChart(trending.tag_name);                       
+                                })
                         }
-                        // console.log(allDataChart.sensors['totalizer_tstamp'].tstamp);
-                        chartTotalizer('totalizer', 'Totalizer', allDataChart.sensors['totalizer_tstamp']
-                            .tstamp, allDataChart.sensors['totalizer'], [], typeGraph);
 
                         Swal.fire(
                             'Success',
@@ -258,6 +235,7 @@
                             // location.reload();
                         })
                     });
+
             }
 
             function filterAlarm(alarms, sensor) {
