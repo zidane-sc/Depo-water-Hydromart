@@ -132,7 +132,7 @@
                                             <div
                                                 class="card royal text-white rounded-20 pd-20 mg-t-40 shadow animated fadeIn">
                                                  <div class="d-block text-right">
-                                                            <button data-toggle="tooltip" title="save images" class="btn btn-sm btn-info right" onclick="downloadImage('{{$tag}}','{{$tag}}')" type="button"
+                                                            <button data-toggle="tooltip" title="save images" class="btn btn-sm btn-info right" onclick="downloadImage('{{$tag['tag_name']}}','{{$tag['display_name']}}')" type="button"
                                                              ><i class="icon ion-ios-download tx-20"></i></button>
                                                     </div>
                                                 <div class="text-center d-flex  bg-grandeur rounded-20 pd-10 text-white shadow"
@@ -141,14 +141,14 @@
                                                     <img src="{{asset('backend/images/icon/water.png')}}"
                                                         class="ht-40 rounded-circle" alt="">
                                                     <span class="tx-bold mg-b-0 mg-t-10 mg-l-5 "
-                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">{{$tag}}
+                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">{{$tag['display_name']}}
                                                     </span>
                                                 </div>
                                                 {{-- <p class="text-right hidden-sm-down" style="margin-top: -40px;">Tuesday ,21 April 2020</p> --}}
 
 
                                                 <div class="bg-royal pd-10 rounded-20 wd-100p mg-t-20 ht-500"
-                                                    id="{{$tag}}" width="">
+                                                    id="{{$tag['tag_name']}}" width="">
                                                 </div>
 
                                             </div>
