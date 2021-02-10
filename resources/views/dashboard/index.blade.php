@@ -159,7 +159,7 @@
                 <span class="tx-bold tx-20  d-block  tx-inverse ">LEVEL TANK 1</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="level_tank_1">-</span>
-                    <span class="tx-black">l</span>
+                    <span class="tx-black">%</span>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->
@@ -170,7 +170,7 @@
                 <span class="tx-bold tx-20  d-block  tx-inverse ">LEVEL TANK 2</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="level_tank_2">-</span>
-                    <span class="tx-black">l</span>
+                    <span class="tx-black">%</span>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->
@@ -181,7 +181,7 @@
                 <span class="tx-bold tx-20  d-block  tx-inverse ">FLOW RATE</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="flow_rate">-</span>
-                    <span class="tx-black">l</span>
+                    <span class="tx-black">L/mnt</span>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->
@@ -192,7 +192,7 @@
                 <span class="tx-bold tx-20  d-block  tx-inverse ">TOTALIZER</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="totalizer">-</span>
-                    <span class="tx-black">mg/l</span>
+                    <span class="tx-black">Liter</span>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->
@@ -270,13 +270,13 @@
 
         $('#tstamp').text(data.tstamp)
         if (data.tag_name === 'ultrasonic_sensor11') {
-            $('#level_tank_1').text(fix_val(data.value,2))
+            $('#level_tank_1').text(fix_val(data.value,0))
         } else if (data.tag_name === 'ultrasonic_sensor12') {
-            $('#level_tank_2').text(fix_val(data.value,2))
+            $('#level_tank_2').text(fix_val(data.value,0))
         } else if (data.tag_name === 'liter_permenit1') {
-            $('#flow_rate').text(fix_val(data.value,2))
+            $('#flow_rate').text(fix_val(data.value,0))
         } else if (data.tag_name === 'flow_litre1') {
-            $('#totalizer').text(fix_val(data.value,2))
+            $('#totalizer').text(fix_val(data.value,0))
         }
 
 
