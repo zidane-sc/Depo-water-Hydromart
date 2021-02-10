@@ -14,7 +14,7 @@ return [
      */
 
     'name' => env('APP_NAME', 'Laravel'),
-    'sub_name' => env('SUB_NAME', 'Endress + Hauser'),
+    'sub_name' => env('SUB_NAME', 'Hydro Mart'),
 
     /*
     |--------------------------------------------------------------------------
@@ -174,7 +174,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
         /*
          * Package Service Providers...
          */
@@ -191,7 +191,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
- 
+
 
     ],
 
