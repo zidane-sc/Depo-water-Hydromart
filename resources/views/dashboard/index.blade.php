@@ -290,7 +290,7 @@
             $('#totalizer').text(fix_val(data.value,0))
         }
 
-        $('#total_gallons').text(Math.round($('#totalizer').text() / 19));
+        $('#total_gallons').text(Math.roundfix_val(data.value,0) / 19));
 
 
         // let totalizer;
