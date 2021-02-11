@@ -197,6 +197,17 @@
             </div><!-- card-body -->
         </div><!-- card -->
     </div>
+    <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+        <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
+            <div class="card-body">
+                <span class="tx-bold tx-20  d-block  tx-inverse ">TOTAL GALLONS</span>
+                <div class="d-block tx-center">
+                    <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="total_gallons">-</span>
+                    <span class="tx-black">Gallons</span>
+                </div>
+            </div><!-- card-body -->
+        </div><!-- card -->
+    </div>
 </div>
 </div>
 
@@ -278,6 +289,8 @@
         } else if (data.tag_name === 'flow_litre1') {
             $('#totalizer').text(fix_val(data.value,0))
         }
+
+        $('#total_gallons').text(Math.round($('#totalizer').text() / 19));
 
 
         // let totalizer;
