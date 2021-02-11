@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Log;
+use App\LogValue;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -22,20 +23,20 @@ class LogsExport implements FromCollection, WithCustomCsvSettings, WithHeadings
     }
     public function collection()
     {
-        $lastData = \App\GlobalSetting::orderBy('id', 'desc')->first();
-        $jsecond = $lastData->schedule_second ?: '00';
-        $jminute = $lastData->schedule_minute ?: '00';
-        $jhour   = $lastData->schedule_hour ?: '00';
+        $jsecond = '00';
+        $jminute = '00';
+        $jhour   = '00';
         $date_now = $this->date_from . ' ' . $jhour . ':' . $jminute . ':' . $jsecond;
         $dateSelectAfter = new DateTime($date_now);
         $date_from = $dateSelectAfter->modify('-1 days')->format('Y-m-d H:i:s');
         $date_to = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
-        $backup = Log::where('tstamp', '>=', $date_from)->where('tstamp', '<=', $date_to)->get();
+        // $backup = LogValue::whereBetween('created_at', [$date_from, $date_to])->limit(100000)->get();
+        $backup = LogValue::whereBetween('created_at', [$date_from, $date_to])->limit(10)->get();
         return $backup;
     }
     public function headings(): array
     {
-        return ["id", "tstamp", "ph", "tss", "amonia", "cod", "flow_meter", "controller_name"];
+        return ["adwadadwad", "device_name", "tag_name", "id", "project_id", "value", "created_at", "updated_at", "updated_at"];
     }
 
     public function getCsvSettings(): array

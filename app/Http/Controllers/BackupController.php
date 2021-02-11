@@ -18,6 +18,7 @@ class BackupController extends Controller
 
     public function backup(Request $request)
     {
+        
         if($request->type == 'CSV'){
             return Excel::download(new LogsExport($request->date_from, $request->date_to), "backup_logs_{$request->date_from}_{$request->date_to}.csv");
         }elseif($request->type == 'EXCEL'){

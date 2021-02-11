@@ -189,7 +189,7 @@
                 </div>
 
 
-                <div class="col-lg-3 mg-b-20 hilang" style="z-index:999">
+                <div class="col-lg-3 mg-b-20" style="z-index:999">
                     <a href="{{url('settings/database')}}">
                         <div class="card shadow-base card__one bd-0 ht-100p rounded-20 animated fadeInUp">
                             <div class="card-body d-flex">
