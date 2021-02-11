@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 // Route::get('product/all', 'ApiProduct@all');
 
 // Route::post('trending', 'JsonController@trendingJson');
-// Route::post('consumption', 'JsonController@consumptionJson');
+Route::post('consumption', 'ConsumptionController@consumptionJson');
 
 Route::get('users', 'UsersApi@index');
 
