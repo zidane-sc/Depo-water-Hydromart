@@ -171,9 +171,10 @@
                                 <thead>
                                     <th width="1%">No</th>
                                     <th width="15%">Date</th>
-                                    <th>KWH Min</th>
-                                    <th>KWH Max</th>
-                                    <th>KWH Total</th>
+                                    <th>Totalizer Min</th>
+                                    <th>Totalizer Max</th>
+                                    <th>Totalizer</th>
+                                    <th>Gallon</th>
                                 </thead>
                                 <tbody>
                                 </tbody>
@@ -266,7 +267,7 @@
 
 
     // DATATABLE
-    var base_url = "{{asset('/backend/logo.png')}}"
+    var base_url = "{{asset('/backend/images/logo/logo-Hydromart.jpg')}}"
     var myGlyph = new Image();
     myGlyph.src = base_url;
 
@@ -284,7 +285,7 @@
     var buttons2 = new $.fn.dataTable.Buttons(table2, {
         buttons: [{
             extend: 'pdfHtml5',
-            title: 'Power Consumption (Data Total)',
+            title: 'Gallon Consumption (Data Total)',
             orientation: 'potrait',
             pageSize: 'A4',
             className: 'btn btn-danger btn-sm btn-corner',
@@ -301,13 +302,13 @@
             }
         }, {
             extend: 'excelHtml5',
-            title: 'Power Consumption (Data Total)',
+            title: 'Gallon Consumption (Data Total)',
             text: '<i class="fas fa-file-excel"></i>&nbsp; EXCEL',
             className: 'btn btn-success btn-sm btn-corner',
             titleAttr: 'Download as Excel'
         }, {
             extend: 'csv',
-            title: 'Power Consumption (Data Total)',
+            title: 'Gallon Consumption (Data Total)',
             text: '<i class="fas fa-file-csv"></i>&nbsp; CSV',
             className: 'btn btn-info btn-sm btn-corner',
             titleAttr: 'Download as Csv'
