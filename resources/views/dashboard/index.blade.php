@@ -370,7 +370,7 @@
     // --- Totalizer
     let interval = '{{$global_setting->db_log_interval}}' * 10000;
 
-    
+
 
 </script>
 @endpush

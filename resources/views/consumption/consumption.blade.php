@@ -55,162 +55,135 @@
 
 @section('content')
 <div class="br-mainpanel">
-    <div class="br-pageheader">
-        <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">{{config('app.name')}}</a>
-            <span class="breadcrumb-item active">{{$page_title}}</span>
-        </nav>
-    </div><!-- br-pageheader -->
-    {{-- <div class="br-pagetitle">
-        <i class="icon icon ion-stats-bars"></i>
-        <div>
-            <h4>{{$page_title}}</h4>
-</div>
-</div><!-- d-flex --> --}}
 
-<div class="br-pagebody">
-    <div class="row row-sm mg-t-20">
-        <div class="col-md-4 mg-t-20">
-            <div class="card bd-0 shadow-base  rounded-30">
-                <div class="card-header tx-medium bd-0 tx-white bg-mantle d-flex justify-content-between align-items-center"
-                    style="border-radius: 30px 30px 0px 0px;">
-                    <h6 class="card-title tx-uppercase text-white tx-12 mg-b-0">{{$page_title}}</h6>
-                    <span class="tx-12 tx-uppercase" id=""></span>
-                </div><!-- card-header -->
-                <div class="card-body  d-xs-flex justify-content-between align-items-center">
-                    <div class="d-md-flex pd-y-20 pd-md-y-0">
-                        <form action="" method="get">
-                            <div class="row">
-                                <div class="col-lg-12">
 
-                                    <small>Select Periode :</small>
-                                    <div class="input-group " id="datepicker-area">
-                                        <span class="input-group-append">
-                                            <select name="" class="form-control" id="daterange">
-                                                <option value="day">Day </option>
-                                                {{-- <option value="minute">Day (M) </option> --}}
-                                                <option value="month">Month</option>
-                                                <option value="year">Year</option>
-                                                {{-- <option value="hour">Hour</option>
-                                                    <option value="minute">Minute</option> --}}
-                                            </select>
-                                        </span>
-                                        <input type="text" name="date" id="date" value="{{$date}}" autocomplete="off"
-                                            class="datepicker form-control   time" required>
+    <div class="br-pagebody">
+        <div class=" text-white rounded-20 pd-t-20 mg-t-50 mg-b-30">
+                <div class="d-flex  bg-royal rounded-20 pd-10 text-white wd-300 animated fadeInLeft"
+                    style="margin-top: -40px;  width:fit-content;  box-shadow: -2px 13px 16px 0px rgba(0, 0, 0, 0.21);">
+                    <img src="{{asset('backend/images/icon/departement.png')}}" class="ht-50 " alt="">
+                    <h4 class="mg-b-0 mg-t-10 mg-l-10 " style="   letter-spacing: 1px;">{{$page_title}}</h4>
+                </div>
+                <div class="row row-sm">
+                </div>
+            </div>
+        <div class="row row-sm mg-t-20">
+            <div class="col-md-4 ">
+                <div class="card bd-0 shadow-base rounded-30">
+                    <div class="card-header tx-medium bd-0 stx-18" style="border-radius: 30px 30px 0px 0px;">
+                        <i class="ion icon ion-calendar"></i> Filter Report
+                    </div>
+                    <div class="card-body  d-xs-flex justify-content-between align-items-center">
+                        <div class="d-md-flex pd-y-20 pd-md-y-0">
+                            <form action="" method="get">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <small>Select Periode :</small>
+                                        <div class="input-group " id="datepicker-area">
+                                            <span class="input-group-append">
+                                                <select name="" class="form-control" id="daterange">
+                                                    <option value="day">Day </option>
+                                                    {{-- <option value="minute">Day (M) </option> --}}
+                                                    <option value="month">Month</option>
+                                                    <option value="year">Year</option>
+                                                    {{-- <option value="hour">Hour</option>
+                                                        <option value="minute">Minute</option> --}}
+                                                </select>
+                                            </span>
+                                            <input type="text" name="date" id="date" value="{{$date}}" autocomplete="off"
+                                                class="datepicker form-control   time" required>
 
-                                        <input type="text" name="month" id="month" value="{{$month}}" autocomplete="off"
-                                            class="datepicker-month form-control  hilang time" required>
+                                            <input type="text" name="month" id="month" value="{{$month}}" autocomplete="off"
+                                                class="datepicker-month form-control  hilang time" required>
 
-                                        <input type="text" name="year" id="year" value="{{$year}}" autocomplete="off"
-                                            class="datepicker-year form-control  hilang time" required>
+                                            <input type="text" name="year" id="year" value="{{$year}}" autocomplete="off"
+                                                class="datepicker-year form-control  hilang time" required>
 
-                                        <span class="input-group-append">
-                                            <button type="button" onclick="submitDate()" class="btn btn-info btn-flat">
-                                                <div><i class="fa fa-paper-plane"></i></div>
-                                            </button>
-                                        </span>
-                                        <span class="input-group-append">
-                                            <a href=" "><button type="button" class="btn btn-danger btn-flat">
-                                                    <div><i class="fa fa-sync"></i></div>
-                                                </button></a>
-                                        </span>
+                                            <span class="input-group-append">
+                                                <button type="button" onclick="submitDate()" class="btn btn-info btn-flat">
+                                                    <div><i class="fa fa-paper-plane"></i></div>
+                                                </button>
+                                            </span>
+                                            <span class="input-group-append">
+                                                <a href=" "><button type="button" class="btn btn-danger btn-flat">
+                                                        <div><i class="fa fa-sync"></i></div>
+                                                    </button></a>
+                                            </span>
+                                        </div>
+                                        <small class="text-muted"><i>*Default ,this date</i></small>
                                     </div>
-                                    <small class="text-muted"><i>*Default ,this date</i></small>
-
-
                                 </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-                </div><!-- card-body -->
-            </div><!-- card -->
-        </div>
-        <div class="col-md-4 mg-t-20">
-            <div class="card card widget-13 bd-0 shadow-base  rounded-20">
-
-                <div class="card-body  pd-10">
-                    <div class=" ">
-                        <ul class="list-group list-group-flush wd-100p">
-                            <li class="list-group-item">
-                                <span class="tx-14 valign-top">
-                                    Status :
-                                </span>
-                                <span id='status'></span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="tx-14 valign-top">
-                                    Periode :
-                                </span>
-                                <span class="tx-12 align-self-center badge " id="periode">
-                                    {{$date}}
-                                </span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="tx-14 valign-top">
-                                    Device :
-                                </span>
-                                <span class="tx-12 align-self-center badge " id="voltage-t-r">
-                                    {{-- {{$deviceActive->name}} --}}
-                                </span>
-                            </li>
-
-
-                        </ul>
-                    </div>
-
-                </div><!-- card-body -->
-            </div><!-- card -->
-        </div>
-    </div>
-    <div class="row row-sm mg-t-20">
-        <div class="col-md-12 mg-t-20">
-            <div class="card bd-0 shadow-base  rounded-30">
-                <div class="card-header tx-medium bd-0 tx-white bg-mantle d-flex justify-content-between align-items-center"
-                    style="border-radius: 30px 30px 0px 0px;">
-                    <h6 class="card-title tx-uppercase text-white tx-12 mg-b-0">DATA TOTAL : ppo
-                    </h6>
-                    <span class="tx-12 tx-uppercase" id="dateTag1"></span>
-                </div><!-- card-header -->
-                <div class="card-body pd-t-40 pd-b-20  justify-content-between align-items-center">
-                    <div class="wd-100p ht-400" id="data-total" width=""></div>
-                    <div class="">
-                        <div id="buttons2" style="padding: 10px; margin-bottom: 10px;width: 25%;">
-                            <p>Download :</p>
+                            </form>
                         </div>
-                        <table id="table-total" class="table table-bordered table-hover">
-                            <thead>
-                                <th width="1%">No</th>
-                                <th width="15%">Date</th>
-                                <th>KWH Min</th>
-                                <th>KWH Max</th>
-                                <th>KWH Total</th>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div><!-- card-body -->
-            </div><!-- card -->
+                    </div><!-- card-body -->
+                </div><!-- card -->
+            </div>
+            <div class="col-md-4 mg-t-20">
+                <div class="card card widget-13 bd-0 shadow-base  rounded-20">
+
+                    <div class="card-body  pd-10">
+                        <div class=" ">
+                            <ul class="list-group list-group-flush wd-100p">
+                                <li class="list-group-item">
+                                    <span class="tx-14 valign-top">
+                                        Status :
+                                    </span>
+                                    <span id='status'></span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="tx-14 valign-top">
+                                        Periode :
+                                    </span>
+                                    <span class="tx-12 align-self-center badge " id="periode">
+                                        {{$date}}
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="tx-14 valign-top">
+                                        Device :
+                                    </span>
+                                    <span class="tx-12 align-self-center badge " id="voltage-t-r">
+                                        {{-- {{$deviceActive->name}} --}}
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- card-body -->
+                </div><!-- card -->
+            </div>
         </div>
-
-
-
-
-
-
-
-
-
-
+        <div class="row row-sm mg-t-20">
+            <div class="col-md-12 mg-t-20">
+                <div class="card bd-0 shadow-base  rounded-30">
+                    <div class="card-header tx-medium bd-0 tx-white bg-mantle d-flex justify-content-between align-items-center"
+                        style="border-radius: 30px 30px 0px 0px;">
+                        <h6 class="card-title tx-uppercase text-white tx-12 mg-b-0">DATA TOTAL : ppo
+                        </h6>
+                        <span class="tx-12 tx-uppercase" id="dateTag1"></span>
+                    </div><!-- card-header -->
+                    <div class="card-body pd-t-40 pd-b-20  justify-content-between align-items-center">
+                        <div class="wd-100p ht-400" id="data-total" width=""></div>
+                        <div class="">
+                            <div id="buttons2" style="padding: 10px; margin-bottom: 10px;width: 25%;">
+                                <p>Download :</p>
+                            </div>
+                            <table id="table-total" class="table table-bordered table-hover">
+                                <thead>
+                                    <th width="1%">No</th>
+                                    <th width="15%">Date</th>
+                                    <th>KWH Min</th>
+                                    <th>KWH Max</th>
+                                    <th>KWH Total</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- card-body -->
+                </div><!-- card -->
+            </div>
+        </div>
     </div>
-
-
-
-
-
-
 </div><!-- br-pagebody -->
 
 @include('layouts.partials.footer')
