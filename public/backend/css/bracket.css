@@ -2844,7 +2844,7 @@ fieldset:disabled a.btn {
     color: #fff;
     background-color: rgb(7, 67, 146);
     border-color: rgb(7, 67, 146);
-    
+
 }
 
 .btn-info.disabled,
@@ -4957,6 +4957,7 @@ input[type="button"].btn-block {
     margin-bottom: 0;
     background-color: rgba(0, 0, 0, 0.03);
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    
 }
 
 .card-header:first-child {
@@ -6601,7 +6602,7 @@ button.close {
 .align-text-top {
     vertical-align: text-top !important;
 }
- 
+
 
 .bg-magenta {
     background-color: #A8005C !important;

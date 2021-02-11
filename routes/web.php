@@ -35,6 +35,9 @@ Route::prefix('alarm')->group(function () {
 Route::get('/api/logs', 'ApiController@logs');
 Route::get('/api/connection-logs', 'ConnectionController@logs');
 
+// CONSUMPTION
+Route::get('/consumption', 'ConsumptionController@index');
+
 // SETTING
 Route::prefix('settings')->group(function () {
     //== All Setting
@@ -73,7 +76,7 @@ Route::prefix('settings')->group(function () {
     Route::get('/privilege/{id}/edit', 'PrivilegeController@edit');
     Route::post('/privilege/store', 'PrivilegeController@store')->name('privilege.store');
     Route::put('/privilege/{id}', 'PrivilegeController@update')->name('privilege.update');
-    Route::delete('/privilege/{id}', 'PrivilegeController@destroy')->name('privilege.delete');    
+    Route::delete('/privilege/{id}', 'PrivilegeController@destroy')->name('privilege.delete');
 
     //== Maintenance
     Route::get('/maintenance', 'MaintenanceController@index');

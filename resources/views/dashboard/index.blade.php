@@ -288,10 +288,8 @@
             $('#flow_rate').text(fix_val(data.value,0))
         } else if (data.tag_name === 'flow_litre1') {
             $('#totalizer').text(fix_val(data.value,0))
+            $('#total_gallons').text(Math.round(data.value / 19));
         }
-
-        $('#total_gallons').text(Math.roundfix_val(data.value,0) / 19));
-
 
         // let totalizer;
         // totalizer = (data.flow_meter / 3600) * 10;
@@ -370,7 +368,7 @@
     // --- Totalizer
     let interval = '{{$global_setting->db_log_interval}}' * 10000;
 
-    
+
 
 </script>
 @endpush

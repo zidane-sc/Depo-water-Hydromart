@@ -68,7 +68,7 @@
         </li><!-- br-menu-item --> --}}
 
         <li class="br-menu-item">
-            <a href="#" class="br-menu-link rounded-10">
+            <a href="{{url('consumption')}}" class="br-menu-link rounded-10">
                 <i class="menu-item-icon icon ion-ios-cloud-upload-outline tx-24"></i>
                 <span class="menu-item-label">Consumtion</span>
             </a><!-- br-menu-link -->
