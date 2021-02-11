@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('page_title') | {{ config('app.sub_name') }}</title>
-    <link rel="shortcut icon" href="{{asset('/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{asset('backend/images/logo/logo-2.png')}}" />
     <link href="{{ asset('backend/') }}/lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ asset('backend/') }}/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css">
 
@@ -34,7 +34,7 @@
     <!-- ########## START: LEFT PANEL ########## -->
     <div class="br-logo tx-18 shadow" style="z-index: 10000;">
         <a href="{{url('/')}}" class="wd-100p text-center">
-            <img style="width:110px;" class="img-fluid" src='{{asset('backend/images/logo/'.$global_setting->logo)}}' alt="">
+            <img style="width:160px;" class="img-fluid" src='{{asset('backend/images/logo/logo-3.png')}}' alt="">
         </a>
     </div>
 
