@@ -288,7 +288,7 @@
             $('#flow_rate').text(fix_val(data.value,0))
         } else if (data.tag_name === 'flow_litre1') {
             $('#totalizer').text(fix_val(data.value,0))
-            $('#total_gallons').text(Math.round(data.value / 19));
+            $('#total_gallons').text(Math.floor(data.value / 19));
         }
 
 

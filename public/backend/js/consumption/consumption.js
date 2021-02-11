@@ -46,7 +46,7 @@ function submitDate() {
                     response.data.consumption.all[i].value_min,
                     response.data.consumption.all[i].value_max,
                     response.data.consumption.all[i].value_total,
-                    Math.round(response.data.consumption.all[i].value_total / 19),
+                    Math.floor(response.data.consumption.all[i].value_total / 19),
                  ])
              });
              table2.draw();
@@ -138,7 +138,7 @@ function dataTotal(param) {
             type: 'bar',
             barGap: '2%',
             data: param.value_total.map((value) => {
-                return Math.round(value / 19);
+                return Math.floor(value / 19);
             })
         }],
         color: ['#1E74AF']
