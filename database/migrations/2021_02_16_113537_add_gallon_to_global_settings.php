@@ -14,7 +14,7 @@ class AddGallonToGlobalSettings extends Migration
     public function up()
     {
         Schema::table('global_settings', function (Blueprint $table) {
-            $table->int('gallon')->nullable();
+            $table->float('gallon')->nullable();
         });
     }
 
