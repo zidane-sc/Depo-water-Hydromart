@@ -123,6 +123,13 @@
                                 @endif
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Litre per gallon :</label>
+                                    <div class="input-group">
+                                        <input type="number" name="gallon" class="form-control"
+                                            placeholder="" value="{{$global_setting->gallon}}">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -137,7 +144,7 @@
 
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 hilang">
                 @if(session()->has('reset_totalizer'))
                 <div class="alert alert-success alert-bordered rounded-20 shadow shadow animated fadeInLeft">
                     {{ session()->get('reset_totalizer') }}
