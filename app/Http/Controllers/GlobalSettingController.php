@@ -136,6 +136,7 @@ class GlobalSettingController extends Controller
         }
         $global_setting->plant_name = $request->plant_name;
         $global_setting->location = $request->location;
+        $global_setting->gallon = $request->gallon;
 
 
         $global_setting->save();

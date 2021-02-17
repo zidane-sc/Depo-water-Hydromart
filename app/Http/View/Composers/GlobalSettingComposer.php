@@ -43,6 +43,7 @@ class GlobalSettingComposer
             'websocket_pool_interval' => isset($lastData->websocket_pool_interval) ? $lastData->websocket_pool_interval : null,
             'path_backup' => isset($lastData->path_backup) ? $lastData->path_backup : null,
             'plant_name' => isset($lastData->plant_name) ? $lastData->plant_name : null,
+            'gallon' => isset($lastData->gallon) ? $lastData->gallon : null,
             'location' => isset($lastData->location) ? $lastData->location : null,
             'logo' => isset($lastData->logo) ? $lastData->logo : null,
             'db_log_interval' => isset($lastData->db_log_interval) ? $lastData->db_log_interval : null,
