@@ -70,7 +70,7 @@
                         </table>
                     </div>
                 </div> --}}
-                <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
+                <div class="col-md-8  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
                         style="   ">
                         <img src="{{asset('backend/images/icon/gateway-2.png')}}" class="ht-70 mg-r-20" alt="">
@@ -93,7 +93,7 @@
                     </div>
 
                 </div>
-                {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
+                <div class="col-md-4  mg-t-30">
                     <div class="d-flex  bg-white rounded-20 ht-100p col-lg-12 pd-10 tx-black shadow animated fadeIn"
                         style="   ">
                         <i class="fa fa-clock fa-4x mg-t-7 mg-r-20"></i>
@@ -112,7 +112,7 @@
                             </tr>
                         </table>
                     </div>
-                </div> --}}
+                </div>
 
             </div>
             <div class="row row-sm">
@@ -279,7 +279,15 @@
             `<span class="float-right wd-100p tx-16 text-success mg-l-10 ">Online<span class="square-8 bg-success rounded-circle"></span> </span>`
         )
 
-        $('#tstamp').text(data.tstamp)
+        $('#tstamp').html(
+            `<span class="float-right wd-100p tx-16 text-danger mg-l-10 animated fadeIn">Offline<span class="square-8 bg-danger rounded-circle"></span> </span>`
+        )
+
+        function pad2(n) { return n < 10 ? '0' + n : n }
+
+        var date = new Date();
+
+        $('#tstamp').text(date.getFullYear().toString() +'-'+ pad2(date.getMonth() + 1) +'-'+ pad2( date.getDate()) +' '+ pad2( date.getHours() ) +':'+ pad2( date.getMinutes() ) +':'+ pad2( date.getSeconds() ))
         if (data.tag_name === 'ultrasonic_sensor11') {
             $('#level_tank_1').text(fix_val(data.value,0))
         } else if (data.tag_name === 'ultrasonic_sensor12') {

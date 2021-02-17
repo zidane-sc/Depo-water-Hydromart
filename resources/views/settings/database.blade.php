@@ -80,7 +80,7 @@
         </div>
 
         <div class="row row-sm">
-            <div class="col-lg-6">
+            <div class="col-lg-6 hilang">
                 @if(session()->has('create'))
                 <div class="alert alert-success alert-bordered rounded-20 shadow shadow animated fadeInLeft">
                     {{ session()->get('create') }}
@@ -297,7 +297,7 @@
                             </div> --}}
 
 
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 hilang">
                                 <div class="form-group">
                                     <label for="">Reset/Delete Log Data:</label>
                                     <div class="input-group">

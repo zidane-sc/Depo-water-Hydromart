@@ -130,7 +130,7 @@
                                     </span>
                                     <span id='status'></span>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item hilang">
                                     <span class="tx-14 valign-top">
                                         Periode :
                                     </span>
@@ -140,10 +140,11 @@
                                 </li>
                                 <li class="list-group-item">
                                     <span class="tx-14 valign-top">
-                                        Device :
+                                        Periode :
                                     </span>
                                     <span class="tx-12 align-self-center badge " id="voltage-t-r">
                                         {{-- {{$deviceActive->name}} --}}
+                                        {{$date}}
                                     </span>
                                 </li>
                             </ul>
@@ -157,7 +158,7 @@
                 <div class="card bd-0 shadow-base  rounded-30">
                     <div class="card-header tx-medium bd-0 tx-white bg-mantle d-flex justify-content-between align-items-center"
                         style="border-radius: 30px 30px 0px 0px;">
-                        <h6 class="card-title tx-uppercase text-white tx-12 mg-b-0">DATA TOTAL : ppo
+                        <h6 class="card-title tx-uppercase text-white tx-12 mg-b-0">DATA TOTAL : GALLON
                         </h6>
                         <span class="tx-12 tx-uppercase" id="dateTag1"></span>
                     </div><!-- card-header -->
