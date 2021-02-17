@@ -203,6 +203,8 @@
 <script src="{{asset('backend/js/consumption/consumption.js')}}"></script>
 
 <script>
+    let gallon = {{ $global_setting->gallon }}
+
     submitDate();
     $('.datatableG').dataTable({
         "searching": false,
