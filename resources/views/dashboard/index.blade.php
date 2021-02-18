@@ -208,7 +208,26 @@
             </div><!-- card-body -->
         </div><!-- card -->
     </div>
+    {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
+        <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
+            <div class="card-header tx-center tx-medium bg-grandeur stx-17" style=" border-radius: 20px 20px 0px 0px;">
+                <span class="tx-center tx-18 tx-bold tx-digital">Support by</span>
+            </div>
+            <div class="card-body">
+                <div class="d-block tx-center">
+
+                     <img src="{{asset('backend/images/logo/goiot-logo.png')}}" alt="" class=" img-fluid wd-80p">
+                </div>
+            </div><!-- card-body -->
+        </div><!-- card -->
+    </div> --}}
 </div>
+</div>
+<div class="row ">
+    <div class="col-lg-3 mt-2 mx-auto">
+        <img src="{{asset('backend/images/logo/goiot-logo.png')}}" alt="" class=" img-fluid float-right animated fadeIn mt-1" style="width: 5rem;">
+        <span class="tx-center tx-20 tx-bold tx-digital float-right animated fadeIn">Support by &nbsp;</span>
+    </div>
 </div>
 
 {{-- -------------------------------------------------------------------------------------------------------------------------------- --}}
@@ -220,7 +239,7 @@
         <h4 class="mg-b-0 mg-t-10 mg-l-10" style="   letter-spacing: 1px;">{{$page_title2}}</h4>
     </div>
     <div class="row row-sm">
-        <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
+        <div class="col-lg-12 col-xs-12 col-sm-12 mg-t-30">
             <div class="row row-sm">
                 <div class="col-lg-12 col-xs-12 col-sm-12  mg-t-30">
                     <div id="wrapper" class="wrapper mx-auto">
