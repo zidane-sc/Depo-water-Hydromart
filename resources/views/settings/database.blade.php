@@ -57,6 +57,9 @@
         width: 100% !important;
         padding: 0;
     }
+	.mdtp__wrapper {
+	top : 120px !important;
+	}
 
 
     /* ======== */
@@ -105,7 +108,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 hilang">
                                 <div class="form-group">
                                     <label for="">Host DB :</label>
                                     <div class="input-group">
@@ -119,7 +122,7 @@
 
 
 
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 hilang">
                                 <div class="form-group">
                                     <label for="">Logger Interval :</label>
                                     <div class="input-group">
@@ -131,7 +134,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 hilang">
                                 <h3>Backup</h3>
 
                                 <div class="form-group">
@@ -145,7 +148,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <h3>Schedule</h3>
+                            <h3>Totalizer <small>(Cutt Off)</small></h3>
                                 <div class="row row-sm">
                                     <div class="col">
                                         <div class="form-group">
@@ -220,7 +223,7 @@
 
                         <button type="submit" class="btn  btn-magenta float-right mg-l-10" id="update-controller">UPDATE
                             SETTING</button>
-                        <button type="button" class=" btn mg-b-10 float-right  btn-warning shadow "
+                        <button type="button" class=" btn mg-b-10 float-right  btn-warning shadow hilang"
                             onclick="restartGateway()" data-toggle="tooltip" data-placement="bottom"
                             title="Restart Gateway">
                             <i class="ion ion-loop tx-18 "></i>
@@ -243,6 +246,8 @@
                                 <div class="col-lg-12">
                                     <div class="form-group  " id="datepicker-date-area">
                                         <label for="">Backup Logs :</label>
+                                        <br>
+                                        <small>DATE :</small>
                                         <div class="input-group">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">From</span>
@@ -262,21 +267,30 @@
                                                 <option value="CSV">CSV</option>
                                                 {{-- <option value="PDF">PDF</option> --}}
                                             </select>
+                                        </div>
+                                    </div>
+                                    <small>TIME :</small>
+                                    <div class="form-group  " >
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">From</span>
+                                            </div>
+                                            <input type="text" class="timepicker form-control time" name="time_from" id="time1" placeholder="00:00:00"/>
+                                            <div class="input-group-append mg-l-10">
+                                                <span class="input-group-text">To</span>
+                                            </div>
+                                            <input type="text" class="timepicker form-control time" name="time_to" id="time2"  placeholder="00:00:00"/>
 
                                         </div>
+                                    </div>
                                         <small>(Ph,Tss,Amonia,Cod,Flow Meter)</small>
                                     </div>
                                     <div class="form-group">
                                         <button type="submimt" name="" data-toggle="tooltip" data-title="Sql"
-                                            class="btn   btn-teal" id="update-controller">
+                                            class="btn mg-l-20 mg-t-10 btn-teal" id="update-controller">
                                             <i class="fas fa-database"></i> Backup
                                         </button>
-
-
-
-
                                     </div>
-
                                 </div>
                             </form>
                             {{-- <div class="col-lg-12">
@@ -297,7 +311,7 @@
                             </div> --}}
 
 
-                            <div class="col-lg-12 hilang">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="">Reset/Delete Log Data:</label>
                                     <div class="input-group">
@@ -384,8 +398,10 @@
         </div>
     </div>
 </div>
+<link href="{{asset('backend/lib/timepicker-2/mdtimepicker.css')}}" rel="stylesheet">
 
 <script src="{{asset('backend/js/sweetalert2@9.js')}}"></script>
+<script src="{{asset('backend/lib/timepicker-2/mdtimepicker.js')}}"></script>
 
 <script>
     $('#table-sensor').dataTable();
@@ -462,6 +478,8 @@
         let dataPost = {};
         dataPost['date_from'] = $('#date1').val();
         dataPost['date_to'] = $('#date2').val();
+    	dataPost['time_from'] = $('#time1').val();
+        dataPost['time_to'] = $('#time2').val();
 
 
         Swal.queue([{
@@ -586,6 +604,37 @@
     });
 
 </script>
+<script>
+    $(document).ready(function(){
+        $('.timepicker').mdtimepicker({
+
+        timeFormat: 'hh:mm:ss.000', 
+        format: 'h:mm tt',      
+
+        // theme of the timepicker
+        // 'red', 'purple', 'indigo', 'teal', 'green', 'dark'
+        theme: 'indigo',   
+
+        readOnly: false,       
+        hourPadding: false,
+        clearBtn: false
+
+        }); 
+        $('.timepicker').mdtimepicker().on('timechanged', function(e){
+            console.log(e.value);
+            console.log(e.time); 
+            });
+            // setting the value
+        $('.timepicker').mdtimepicker('setValue', '00:00 AM');
+
+        // calling the `show` and `hide` functions
+        $('.timepicker').mdtimepicker('show');
+        $('.timepicker').mdtimepicker('hide');
+
+        // destroying the timepicker
+        $('.timepicker').mdtimepicker('destroy');
+     });
+    </script>
 @endpush
 @include('layouts.partials.footer')
 </div><!-- br-mainpanel -->

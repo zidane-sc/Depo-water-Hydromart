@@ -42,8 +42,8 @@
                 <td>{{$data['ultrasonic_sensor11'][$loop->index]->value}}</td>
                 <td>{{$data['ultrasonic_sensor12'][$loop->index]->value}}</td>
                 <td>{{$data['liter_permenit1'][$loop->index]->value}}</td>
-                <td>{{$data['flow_litre1'][$loop->index]->value}}</td>
-                <td>{{floor($data['flow_litre1'][$loop->index]->value / 19)}}</td>
+                <td>{{$data['totalizer'][$loop->index]->value}}</td>
+                <td>{{floor($data['totalizer'][$loop->index]->value / 19)}}</td>
             </tr>
             @endforeach
         </table>

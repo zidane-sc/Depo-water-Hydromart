@@ -129,8 +129,7 @@
 
                                         <div class="col-lg-12">
                                             @foreach ($tags as $tag)
-                                            <div
-                                                class="card royal text-white rounded-20 pd-20 mg-t-40 shadow animated fadeIn">
+                                            <div class="card royal text-white rounded-20 pd-20 mg-t-40 shadow animated fadeIn">
                                                  <div class="d-block text-right">
                                                             <button data-toggle="tooltip" title="save images" class="btn btn-sm btn-info right" onclick="downloadImage('{{$tag['tag_name']}}','{{$tag['display_name']}}')" type="button"
                                                              ><i class="icon ion-ios-download tx-20"></i></button>
@@ -153,6 +152,29 @@
 
                                             </div>
                                             @endforeach
+                                        
+<!--                                         <div class="card royal text-white rounded-20 pd-20 mg-t-40 shadow animated fadeIn totalizer"
+                                                id="full_totalizer">
+                                               <div class="d-block text-right">
+                                                    <button data-toggle="tooltip" title="save images" class="btn btn-sm btn-info right" onclick="downloadImage('totalizer','totalizer')" type="button"
+                                                     ><i class="icon ion-ios-download tx-20"></i></button>
+                                               </div>
+
+                                                <div class="text-center d-flex  bg-grandeur rounded-20 pd-10 text-white shadow"
+                                                    style="width:fit-content;margin-top: -40px;    box-shadow: -2px 13px 16px 0px rgba(0, 0, 0, 0.21);">
+                                                    <img src="{{asset('backend/images/icon/water.png')}}"
+                                                        class="ht-40 rounded-circle" alt="">
+                                                    <span class="tx-bold mg-b-0 mg-t-10 mg-l-5 "
+                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">Totalizer
+                                                    </span>
+                                                </div>
+                                                {{-- <p class="text-right hidden-sm-down" style="margin-top: -40px;">Tuesday ,21 April 2020</p> --}}
+
+
+                                                <div class="bg-royal pd-10 rounded-20 wd-100p mg-t-20 ht-500"
+                                                    id="totalizer" width="">
+                                                </div>
+                                            </div> -->
                                         </div>
                         </div>
                     </div>

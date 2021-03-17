@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Log;
+use App\LogValue;
 use Illuminate\Http\Request;
 use App\Exports\LogsExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -18,13 +18,14 @@ class BackupController extends Controller
 
     public function backup(Request $request)
     {
-        
+        $time_from = date(" G:i", strtotime($request->time_from ?? "00:00"));
+   		$time_to =  date(" G:i", strtotime($request->time_to ?? "23:59"));
         if($request->type == 'CSV'){
-            return Excel::download(new LogsExport($request->date_from, $request->date_to), "backup_logs_{$request->date_from}_{$request->date_to}.csv");
+            return Excel::download(new LogsExport($request->date_from, $request->date_to, $time_from, $time_to), "backup_logs_{$request->date_from}_{$request->date_to}.csv");
         }elseif($request->type == 'EXCEL'){
-            return Excel::download(new LogsExport($request->date_from, $request->date_to), "backup_logs_{$request->date_from}_{$request->date_to}.xlsx");
+            return Excel::download(new LogsExport($request->date_from, $request->date_to, $time_from, $time_to), "backup_logs_{$request->date_from}_{$request->date_to}.xlsx");
         }elseif($request->type == 'PDF'){
-            $backup = Log::where('tstamp', '>=', $request->date_from . ' 00:00:00')->where('tstamp', '<=', $request->date_to . ' 23:59:59')->get();
+            $backup = LogValue::where('tstamp', '>=', $request->date_from . ' 00:00:00')->where('tstamp', '<=', $request->date_to . ' 23:59:59')->get();
             $pdf = PDF::loadView('pdf.database', ['backup'=> $backup])->setPaper('letter', 'landscape');
             return $pdf->download("backup_logs_{$request->date_from}_{$request->date_to}.pdf");
         }

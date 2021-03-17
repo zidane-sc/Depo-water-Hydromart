@@ -208,6 +208,7 @@
             </div><!-- card-body -->
         </div><!-- card -->
     </div>
+    
     {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
         <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
             <div class="card-header tx-center tx-medium bg-grandeur stx-17" style=" border-radius: 20px 20px 0px 0px;">
@@ -223,12 +224,7 @@
     </div> --}}
 </div>
 </div>
-<div class="row ">
-    <div class="col-lg-3 mt-2 mx-auto">
-        <img src="{{asset('backend/images/logo/goiot-logo.png')}}" alt="" class=" img-fluid float-right animated fadeIn mt-1" style="width: 5rem;">
-        <span class="tx-center tx-20 tx-bold tx-digital float-right animated fadeIn">Support by &nbsp;</span>
-    </div>
-</div>
+
 
 {{-- -------------------------------------------------------------------------------------------------------------------------------- --}}
 
@@ -276,7 +272,7 @@
 @push('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.js"></script>
 <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-<script src="{{asset('backend/js/water-tank/water-tank.js')}}"></script>
+<!-- <script src="{{asset('backend/js/water-tank/water-tank.js')}}"></script> -->
 
 
 <script>
@@ -313,11 +309,12 @@
             $('#level_tank_2').text(fix_val(data.value,0))
         } else if (data.tag_name === 'liter_permenit1') {
             $('#flow_rate').text(fix_val(data.value,0))
-        } else if (data.tag_name === 'flow_litre1') {
-            $('#totalizer').text(fix_val(data.value,0))
-            $('#total_gallons').text(Math.floor(data.value / {{ $global_setting->gallon }}));
-        }
+        } else if (data.tag_name === 'totalizer'){
+            $('#totalizer').text(fix_val(data.value, 0))
+            $('#total_gallons').text(Math.floor(data.value / {{ $global_setting->gallon }}))
 
+        }
+		console.log(data.tag_name);
         // let totalizer;
         // totalizer = (data.flow_meter / 3600) * 10;
         // $('#totalizer').text(fix_val(totalizer , 1))

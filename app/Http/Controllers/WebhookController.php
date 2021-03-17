@@ -10,6 +10,22 @@ class WebhookController extends Controller
     public function WebHook(Request $request)
     {   
         $this->CurlNya($request->all());
+   		if ($request->tag_name == "liter_permenit1") {
+            $old_logs = \App\LogValue::latest("created_at")->where("tag_name", "totalizer")->first();
+            $today = date("H:i:s");
+        	
+            $log = new \App\LogValue();
+            $log->device_name = $request->device_name;
+            $log->tag_name = "totalizer";
+            $log->project_id = $request->project_id;
+        	if($today == date("H:i:s", strtotime("07:00:00"))){
+            	$log->value = 0;
+            }else{
+				$log->value = ((float)$request->value / 60) + ($old_logs->value ?? 0);
+            }	
+        	$this->CurlNya($log);
+            $log->save();
+        }
         \App\LogValue::create($request->all());
         return $request->all();
     }

@@ -28,7 +28,7 @@ class TrendingReportController extends Controller
             ['tag_name' => 'ultrasonic_sensor11', 'display_name' => 'Tank1'],
             ['tag_name' => 'ultrasonic_sensor12', 'display_name' => 'Tank2'],
             ['tag_name' => 'liter_permenit1', 'display_name' => 'FLOW RATE'],
-            ['tag_name' => 'flow_litre1', 'display_name' => 'TOTALIZER'],
+            ['tag_name' => 'totalizer', 'display_name' => 'TOTALIZER'],
         ];
         $data['date'] = date('Y-m-d ');
         $dateSelect = date('Y-m');
@@ -46,12 +46,36 @@ class TrendingReportController extends Controller
     {
         $global_setting = \App\GlobalSetting::orderBy('id', 'desc')->first();
         $daterange = $request->daterange;
+        $datewhere = $request->date;
+
+   
         if ($daterange == 'year') {
+            $date_from = date('Y-01-01 00:00:00',strtotime($datewhere));
+            $date_to = date('Y-m-d H:i:s');
             $daterange = 'month';
         } elseif ($daterange == 'month') {
+            $date_from = date('Y-m-01 00:00:00',strtotime($datewhere));
+            $date_to = date('Y-m-d H:i:s');
             $daterange = 'day';
         } elseif ($daterange == 'day') {
-            $daterange = 'hour';
+        	if($request->tag == 'totalizer'){
+             	// if ($daterange == 'hour') {
+         		   	$dateSelect = ($request->date);
+       			// } 
+       			// else {
+       			// $dateSelect1 = ($request->date);
+       			// $dateSelect  = $dateSelect1 . date('-d');
+       			// }
+		        $dateSelectBefore = new DateTime($dateSelect . ' 07:00:00');
+        		$dateSelectAfter = new DateTime($dateSelect . ' 06:59:59');
+        		$date_from = $dateSelectBefore->format('Y-m-d H:i:s');
+      			$date_to  = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
+            	$daterange = 'hour';
+            }else{
+            	$date_from = date('Y-m-d H:i:s' ,strtotime($datewhere.' 00:00:00'));
+            	$date_to = date('Y-m-d H:i:s');
+            	$daterange = 'hour';
+            }
         } elseif ($daterange == 'hour') {
             $daterange = 'minute';
         } else {
@@ -66,7 +90,7 @@ class TrendingReportController extends Controller
             avg(value)
             "))
                 ->where("tag_name", $request->tag)
-                ->where("created_at", "LIKE", '%' . $request->date . '%')
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->groupBy('datetime', 'tag_name')
                 ->orderBy('datetime', 'asc')
                 ->get();
@@ -78,11 +102,37 @@ class TrendingReportController extends Controller
             avg(value)
             "))
             ->where("tag_name", $request->tag)
-                ->where("created_at", "LIKE", '%' . $request->date . '%')
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->groupBy('datetime', 'tag_name')
                 ->orderBy('datetime', 'asc')
                 ->get();
         }
+    
+//     		 if ($daterange == 'hour') {
+//            			 $dateSelect = ($request->date);
+//        			 } else {
+//             		$dateSelect1 = ($request->date);
+//             		$dateSelect  = $dateSelect1 . date('-d');
+//         		 }
+//         			$dateSelectBefore = new DateTime($dateSelect . ' 07:00:00');
+//         			$dateSelectAfter = new DateTime($dateSelect . ' 06:59:59');
+//         			$datebefore = $dateSelectBefore->modify('-1 days')->format('Y-m-d H:i:s');
+//         			$dateafter  = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
+
+//         		if (date('Y-m-d') == $dateSelect) {
+//             		if (($dateSelect . date(' H:i:s')) < ($dateSelect . date(' 07:00:00'))) {
+//                 	// $date_from = date('Y-m-d 07:00:00', strtotime("-1 days"));
+//                 	$date_from = $datebefore;
+//                 	$date_to = ($dateSelect . date(' 06:59:59'));
+//            	 		} else {
+//                 	$date_from = (date('Y-m-d 07:00:00'));
+//                 	$date_to = $dateafter;
+//                 	// $date_to = date('Y-m-d 06:59:59', strtotime("+1 days"));
+//             		}
+//         		} else {
+//             	$date_from = $dateSelect . ' 07:00:00';
+//             	$date_to = $dateafter;
+//         		}
 
 
         $stackTstamp = [];
@@ -108,7 +158,8 @@ class TrendingReportController extends Controller
             // array_push($stack_avg_cod, ($log->avg_cod === 'NaN' || $log->avg_cod === null) ? "0" : number_format((float)$log->avg_cod, 2, '.', ''));
             // array_push($stack_avg_flow_meter, ($log->avg_flow_meter === 'NaN' || $log->avg_flow_meter === null) ? "0" : number_format((float)$log->avg_flow_meter, 2, '.', ''));
         }
-
+    
+		
 
 
         // $dataTotalizers = DB::table('logs')

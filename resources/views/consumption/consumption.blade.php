@@ -135,7 +135,7 @@
                                         Periode :
                                     </span>
                                     <span class="tx-12 align-self-center badge " id="periode">
-                                        {{$date}}
+                                        {{date('d-m-Y')}}
                                     </span>
                                 </li>
                                 <li class="list-group-item">
@@ -144,7 +144,7 @@
                                     </span>
                                     <span class="tx-12 align-self-center badge " id="voltage-t-r">
                                         {{-- {{$deviceActive->name}} --}}
-                                        {{$date}}
+                                       {{date('d-m-Y')}}
                                     </span>
                                 </li>
                             </ul>
