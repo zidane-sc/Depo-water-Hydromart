@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
         config(['app.locale' => 'id']);
         Carbon::setLocale('id');
         date_default_timezone_set('Asia/Jakarta');
-        $this->app['request']->server->set('HTTPS', true);
-        URL::forceScheme('https');
+        // $this->app['request']->server->set('HTTPS', true);
+        // URL::forceScheme('https');
         // DEVICE
         // $products = \App\Product::orderBy('id', 'desc')->get();
         // $deviceActive = \App\Device::where('status', 1)->first();
