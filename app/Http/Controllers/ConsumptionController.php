@@ -11,7 +11,6 @@ class ConsumptionController extends Controller
     public function index()
     {
         $data['page_title'] = 'Consumption';
-
         $data['date'] = date('Y-m-d');
         $data['month'] = date('Y-m');
         $data['year'] = date('Y');
@@ -66,7 +65,6 @@ class ConsumptionController extends Controller
             "))
             ->where('rn', 1)
             ->where('tag_name', 'totalizer')
-            // ->where("created_at", "LIKE", '%' . $datewhere . '%')
             ->whereBetween('created_at', [$date_from, $date_to])
             ->orderBy('created_at', 'asc')
             ->get();

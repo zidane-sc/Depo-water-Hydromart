@@ -50,39 +50,48 @@ class TrendingReportController extends Controller
 
    
         if ($daterange == 'year') {
+        
             $date_from = date('Y-01-01 00:00:00',strtotime($datewhere));
             $date_to = date('Y-m-d H:i:s');
             $daterange = 'month';
+        
         } elseif ($daterange == 'month') {
+        
             $date_from = date('Y-m-01 00:00:00',strtotime($datewhere));
             $date_to = date('Y-m-d H:i:s');
             $daterange = 'day';
+        
         } elseif ($daterange == 'day') {
+        
         	if($request->tag == 'totalizer'){
-             	// if ($daterange == 'hour') {
-         		   	$dateSelect = ($request->date);
-       			// } 
-       			// else {
-       			// $dateSelect1 = ($request->date);
-       			// $dateSelect  = $dateSelect1 . date('-d');
-       			// }
+         		
+            	$dateSelect = ($request->date);
 		        $dateSelectBefore = new DateTime($dateSelect . ' 07:00:00');
         		$dateSelectAfter = new DateTime($dateSelect . ' 06:59:59');
         		$date_from = $dateSelectBefore->format('Y-m-d H:i:s');
       			$date_to  = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
             	$daterange = 'hour';
+            
             }else{
+            
             	$date_from = date('Y-m-d H:i:s' ,strtotime($datewhere.' 00:00:00'));
             	$date_to = date('Y-m-d H:i:s');
             	$daterange = 'hour';
+            
             }
+        
         } elseif ($daterange == 'hour') {
+        
             $daterange = 'minute';
+        
         } else {
+        
             $daterange = 'minute';
+        
         }
 
         if ($request->daterange === 'day') {
+        
             $dataLogs = DB::table('log_values')
                 ->select(DB::raw("
             date_trunc('" . $daterange . "',created_at) as datetime,
@@ -94,7 +103,9 @@ class TrendingReportController extends Controller
                 ->groupBy('datetime', 'tag_name')
                 ->orderBy('datetime', 'asc')
                 ->get();
+        
         } else {
+        
             $dataLogs = DB::table('log_values')
                 ->select(DB::raw("
             date_trunc('" . $daterange . "',created_at) AS datetime ,
@@ -106,34 +117,8 @@ class TrendingReportController extends Controller
                 ->groupBy('datetime', 'tag_name')
                 ->orderBy('datetime', 'asc')
                 ->get();
+        
         }
-    
-//     		 if ($daterange == 'hour') {
-//            			 $dateSelect = ($request->date);
-//        			 } else {
-//             		$dateSelect1 = ($request->date);
-//             		$dateSelect  = $dateSelect1 . date('-d');
-//         		 }
-//         			$dateSelectBefore = new DateTime($dateSelect . ' 07:00:00');
-//         			$dateSelectAfter = new DateTime($dateSelect . ' 06:59:59');
-//         			$datebefore = $dateSelectBefore->modify('-1 days')->format('Y-m-d H:i:s');
-//         			$dateafter  = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
-
-//         		if (date('Y-m-d') == $dateSelect) {
-//             		if (($dateSelect . date(' H:i:s')) < ($dateSelect . date(' 07:00:00'))) {
-//                 	// $date_from = date('Y-m-d 07:00:00', strtotime("-1 days"));
-//                 	$date_from = $datebefore;
-//                 	$date_to = ($dateSelect . date(' 06:59:59'));
-//            	 		} else {
-//                 	$date_from = (date('Y-m-d 07:00:00'));
-//                 	$date_to = $dateafter;
-//                 	// $date_to = date('Y-m-d 06:59:59', strtotime("+1 days"));
-//             		}
-//         		} else {
-//             	$date_from = $dateSelect . ' 07:00:00';
-//             	$date_to = $dateafter;
-//         		}
-
 
         $stackTstamp = [];
         $value = [];
@@ -302,10 +287,10 @@ class TrendingReportController extends Controller
 
 
         $dataLogs = DB::table('logs')
-            ->select(DB::raw("id,flow_meter"))
-            ->where("tstamp", ">=", $date_from)
-            ->where("tstamp", "<=", $date_to)
-            ->get();
+            		->select(DB::raw("id,flow_meter"))
+           		 	->where("tstamp", ">=", $date_from)
+            		->where("tstamp", "<=", $date_to)
+            		->get();
         $global_setting = \App\GlobalSetting::orderBy('id', 'desc')->first();
         $data_reset = \App\ResetTotalizer::orderBy('id', 'desc')->take(1)->first();
 
