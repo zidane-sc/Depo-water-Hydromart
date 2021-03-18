@@ -40,6 +40,7 @@ function submitDate() {
              // --datatotal
              table2.clear();
              $.each(response.data.consumption.all, function (i, key) {
+             	
                  table2.row.add([
                      i + 1,
                     response.data.consumption.all[i].datetime,

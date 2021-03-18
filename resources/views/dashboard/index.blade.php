@@ -208,17 +208,6 @@
             </div><!-- card-body -->
         </div><!-- card -->
     </div>
-    <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
-        <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
-            <div class="card-body">
-                <span class="tx-bold tx-20  d-block  tx-inverse ">TOTALIZER 2</span>
-                <div class="d-block tx-center">
-                    <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="totalizer2">-</span>
-                    <span class="tx-black">Liter</span>
-                </div>
-            </div><!-- card-body -->
-        </div><!-- card -->
-    </div>
     {{-- <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30 ">
         <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
             <div class="card-header tx-center tx-medium bg-grandeur stx-17" style=" border-radius: 20px 20px 0px 0px;">
@@ -319,11 +308,9 @@
             $('#level_tank_2').text(fix_val(data.value,0))
         } else if (data.tag_name === 'liter_permenit1') {
             $('#flow_rate').text(fix_val(data.value,0))
-        } else if (data.tag_name === 'flow_litre1') {
-            $('#totalizer').text(fix_val(data.value,0))
-            $('#total_gallons').text(Math.floor(data.value / {{ $global_setting->gallon }}))
         } else if (data.tag_name === 'totalizer'){
-            $('#totalizer2').text(fix_val(data.value, 0))
+            $('#totalizer').text(fix_val(data.value, 0))
+            $('#total_gallons').text(Math.floor(data.value / {{ $global_setting->gallon }}))
 
         }
 		console.log(data.tag_name);

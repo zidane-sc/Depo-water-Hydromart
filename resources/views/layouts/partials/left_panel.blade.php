@@ -1,4 +1,3 @@
-
 <div class="br-sideleft sideleft-scrollbar bg-white shadow tx-black-5 {{(!isset($monitor)) ?: 'hilang'}}">
     <ul class="br-sideleft-menu">
         <label class="sidebar-label pd-x-10 mg-t-20 op-3">PLANT NAME : </label>
@@ -63,7 +62,7 @@
         <li class="br-menu-item">
             <a href="{{url('consumption')}}" class="br-menu-link rounded-10">
                 <i class="menu-item-icon icon ion-ios-cloud-upload-outline tx-24"></i>
-                <span class="menu-item-label">Consumtion</span>
+                <span class="menu-item-label">Consumption</span>
             </a><!-- br-menu-link -->
         </li><!-- br-menu-item -->
 
@@ -98,6 +97,9 @@
         </li> --}}
 
     </ul><!-- br-sideleft-menu -->
+            </form>
+
+    	<label class="sidebar-label pd-x-10 mg-t-20 " style="position: absolute; bottom: 0px;">POWERED BY : <img src="{{asset('backend/images/logo/goiot-logo.png')}}" alt="" style="max-width: 100px;">  </label> 
 
     <br>
     <div class="row">

@@ -5,8 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="{{asset('/favicon.ico')}}" />
-    <title>Please Log In to {{ env('APP_SUBNAME') }} Environmental Smart System</title>
+        <link rel="shortcut icon" href="{{asset('backend/images/logo/logo-2.png')}}" />
+	<title>Please Log In to {{ env('APP_SUBNAME') }} Environmental Smart System</title>
     <!-- vendor css -->
     <link href="{{ asset('backend/') }}/lib/%40fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('backend/') }}/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
@@ -77,7 +77,9 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-login btn-block" style="">Sign In</button>
-
+						<div class="mg-t-60 tx-center">Powered by:<a href="goiot.id" class="tx-info">
+                            <img src="{{asset('backend/images/logo/goiot-logo.png')}}" alt="" style="max-width: 100px;">
+                        </a></div>
                     {{-- <div class="mg-t-60 tx-center">Not yet a member? <a href="#" class="tx-info">Sign Up</a></div> --}}
                 </form>
 
