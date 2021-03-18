@@ -22,7 +22,7 @@ class LogsExport implements FromView, WithCustomCsvSettings, WithHeadings, Shoul
     private $date_to;
     private $time_from;
     private $time_to;
-    function __construct($dateFrom, $dateTo,$timeFrom = "kosong", $timeTo = "kosong")
+    function __construct($dateFrom, $dateTo,$timeFrom , $timeTo )
     {
         $this->date_from = $dateFrom;
         $this->date_to = $dateTo;
@@ -34,18 +34,18 @@ class LogsExport implements FromView, WithCustomCsvSettings, WithHeadings, Shoul
     {
      $tags = [ 'ultrasonic_sensor11', 'ultrasonic_sensor12', 'liter_permenit1', 'flow_litre1', 'totalizer'];
 
-     if( $this->time_from == "kosong" && $this->time_to == "kosong" ){
-        $jsecond = '00';
-        $jminute = '00';
-        $jhour   = '00';
-        $date_now = $this->date_from . ' ' . $jhour . ':' . $jminute . ':' . $jsecond;
-        $dateSelectAfter = new DateTime($date_now);
-        $date_from = $dateSelectAfter->modify('-1 days')->format('Y-m-d H:i:s');
-        $date_to = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
-     } else {
+     // if( $this->time_from == "kosong" && $this->time_to == "kosong" ){
+        // $jsecond = '00';
+        // $jminute = '00';
+        // $jhour   = '00';
+        // $date_now = $this->date_from . ' ' . $jhour . ':' . $jminute . ':' . $jsecond;
+        // $dateSelectAfter = new DateTime($date_now);
+     //    $date_from = $dateSelectAfter->modify('-1 days')->format('Y-m-d H:i:s');
+     //    $date_to = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
+     // } else {
             $date_from = new DateTime($this->date_from . $this->time_from . ':00');
             $date_to = new DateTime($this->date_to .$this->time_to . ':00');
-     }
+     // }
 
         foreach ($tags as $tag) {
             $dataLogs[$tag] = DB::table('log_values')
@@ -57,7 +57,7 @@ class LogsExport implements FromView, WithCustomCsvSettings, WithHeadings, Shoul
                     ->where("tag_name", $tag)
             		->orderBy("datetime","asc")
                     ->whereBetween('created_at', [$date_from, $date_to])
-                    ->limit(100000)
+                    ->limit(100000000)
                     ->get();
         }
 

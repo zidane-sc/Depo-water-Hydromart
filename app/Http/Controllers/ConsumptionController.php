@@ -48,7 +48,7 @@ class ConsumptionController extends Controller
        
             MAX(value) OVER (PARTITION BY date_trunc('" . $daterange . "',created_at),device_name ORDER BY id  desc ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) as value_max,
             MIN(value) OVER (PARTITION BY date_trunc('" . $daterange . "',created_at),device_name ORDER BY id  desc ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) as value_min
-			FROM log_values where value != 0 AND tag_name = 'totalizer' AND created_at BETWEEN '" . $date_from . "' AND '" . $date_to . "'
+			FROM log_values where tag_name = 'totalizer' AND created_at BETWEEN '" . $date_from . "' AND '" . $date_to . "'
             ) as dm
             "))
             //          LAST_VALUE(energy_kwh_total) OVER (PARTITION BY date_trunc('" . $daterange . "',created_at),device_id ORDER BY id  desc ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) as kwh_exist,

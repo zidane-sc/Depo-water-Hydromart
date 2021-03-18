@@ -11,8 +11,8 @@ class BackupController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('privilege:DatabaseBackup', ['only' => 'backup']);
+        // $this->middleware('auth');
+        // $this->middleware('privilege:DatabaseBackup', ['only' => 'backup']);
         // $this->middleware('privilege:DatabaseReset', ['only' => 'reset']);
     }
 
@@ -34,7 +34,7 @@ class BackupController extends Controller
     public function reset()
     {
         try {
-            $device = Log::truncate();
+            $device = LogValue::truncate();
             return response()->json(['status' => '200', 'msg' => 'success']);
         } catch (\Throwable $th) {
             //throw $th;

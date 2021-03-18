@@ -66,10 +66,10 @@ class TrendingReportController extends Controller
         	if($request->tag == 'totalizer'){
          		
             	$dateSelect = ($request->date);
-		        $dateSelectBefore = new DateTime($dateSelect . ' 07:00:00');
-        		$dateSelectAfter = new DateTime($dateSelect . ' 06:59:59');
+		        $dateSelectBefore = new DateTime($dateSelect . ' 00:00:00');
+        		$dateSelectAfter = new DateTime($dateSelect . ' 23:59:59');
         		$date_from = $dateSelectBefore->format('Y-m-d H:i:s');
-      			$date_to  = $dateSelectAfter->modify('+1 days')->format('Y-m-d H:i:s');
+      			$date_to  = $dateSelectAfter->format('Y-m-d H:i:s');
             	$daterange = 'hour';
             
             }else{
