@@ -16,10 +16,10 @@ class TagController extends Controller
         // $this->middleware('privilege:TagEdit', ['only' => 'update']);
         // $this->middleware('privilege:TagDelete', ['only' => 'delete']);
     }
-    
+
     public function test()
     {
-        $tags = ['ultrasonic_sensor11', 'ultrasonic_sensor12', 'liter_permenit1', 'flow_litre1'];
+        $tags = ['ultrasonic_sensor11', 'ultrasonic_sensor12', 'liter_permenit1', 'flow_litre1', 'totalizer'];
         return json_encode($tags);
     }
 

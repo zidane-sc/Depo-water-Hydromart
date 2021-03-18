@@ -178,7 +178,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                     
+
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -205,7 +205,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            
+
                                             <label for="">Day of Week :</label>
                                             <small>0-7</small>
                                             <div class="input-group">
@@ -297,7 +297,7 @@
                             </div> --}}
 
 
-                            <div class="col-lg-12 hilang">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="">Reset/Delete Log Data:</label>
                                     <div class="input-group">

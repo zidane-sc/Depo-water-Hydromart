@@ -166,7 +166,7 @@
         axios.get(`{{url('/')}}` + '/alarm/alarm-list?date='+date)
             .then(async function (response) {
 
-                
+
 
                 Swal.fire(
                     'Success',
@@ -180,13 +180,13 @@
                             i + 1,
                             response.data[i].tstamp,
                             response.data[i].text,
-                         
+
                         ])
                     });
                     table.draw();
                 })
 
-               
+
 
             })
             .catch(function (error) {

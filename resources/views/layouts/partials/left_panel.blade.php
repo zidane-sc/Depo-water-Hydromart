@@ -1,7 +1,6 @@
 
 <div class="br-sideleft sideleft-scrollbar bg-white shadow tx-black-5 {{(!isset($monitor)) ?: 'hilang'}}">
     <ul class="br-sideleft-menu">
-
         <label class="sidebar-label pd-x-10 mg-t-20 op-3">PLANT NAME : </label>
         <li class="br-menu-item" style="text-align: center;">
             <label  class=" ">
@@ -9,13 +8,10 @@
                     <img style="width:150px;" class="img-fluid" src='{{asset('backend/images/logo/'.$global_setting->logo)}}' alt="">
                 </span>
                 <br>
-
             </label >
-
         </li><!-- br-menu-item -->
         <li class="br-menu-item">
             <label  class="br-menu-link rounded-10 ">
-
                 <span class="menu-item-label mg-l-0 tx-13">
                     <i class="menu-item-icon fa fa-industry tx-10"></i>
                     {{$global_setting->plant_name}}
@@ -23,12 +19,9 @@
                     <span class="tx-light tx-13">
                         <i class="menu-item-icon  fa fa-map-marker tx-23"></i>  {{$global_setting->location}}
                     </span>
-
                 </span>
                 <br>
-
             </label >
-
         </li><!-- br-menu-item -->
         <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
 
@@ -106,6 +99,11 @@
 
     </ul><!-- br-sideleft-menu -->
 
-
     <br>
+    <div class="row">
+        <div class="mx-auto mt-auto bg-grandeur" style="margin-auto:200px;">
+            <img src="{{asset('backend/images/logo/goiot-logo.png')}}" alt="" class=" img-fluid float-right animated fadeIn mt-1" style="width: 5rem;">
+            <span class="tx-center tx-20 tx-bold tx-digital float-right animated fadeIn ">Support by &nbsp;</span>
+        </div>
+    </div>
 </div><!-- br-sideleft -->
