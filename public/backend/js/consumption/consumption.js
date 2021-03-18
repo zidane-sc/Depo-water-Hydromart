@@ -40,14 +40,14 @@ function submitDate() {
              // --datatotal
              table2.clear();
              $.each(response.data.consumption.all, function (i, key) {
-             	
+             	total_galon = (response.data.consumption.all[i].value_total != 0) ? Math.floor(response.data.consumption.all[i].value_total / gallon) : 0;
                  table2.row.add([
                      i + 1,
                     response.data.consumption.all[i].datetime,
                     response.data.consumption.all[i].value_min,
                     response.data.consumption.all[i].value_max,
                     response.data.consumption.all[i].value_total,
-                    (response.data.consumption.all[i].value_total != 0) ? Math.floor(response.data.consumption.all[i].value_total / gallon) : 0,
+                    total_galon,
                  ])
              });
              table2.draw();
