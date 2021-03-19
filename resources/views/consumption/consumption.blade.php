@@ -71,21 +71,21 @@
             <div class="col-md-4 ">
                 <div class="card bd-0 shadow-base rounded-30">
                     <div class="card-header tx-medium bd-0 stx-18" style="border-radius: 30px 30px 0px 0px;">
-                        <i class="ion icon ion-calendar"></i> Filter Report
+                        <i class="ion icon ion-calendar"></i> Filter Laporan
                     </div>
                     <div class="card-body  d-xs-flex justify-content-between align-items-center">
                         <div class="d-md-flex pd-y-20 pd-md-y-0">
                             <form action="" method="get">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <small>Select Periode :</small>
+                                        <small>Pilih Periode :</small>
                                         <div class="input-group " id="datepicker-area">
                                             <span class="input-group-append">
                                                 <select name="" class="form-control" id="daterange">
-                                                    <option value="day">Day </option>
+                                                    <option value="day">Hari </option>
                                                     {{-- <option value="minute">Day (M) </option> --}}
-                                                    <option value="month">Month</option>
-                                                    <option value="year">Year</option>
+                                                    <option value="month">Bulan</option>
+                                                    <option value="year">Tahun</option>
                                                     {{-- <option value="hour">Hour</option>
                                                         <option value="minute">Minute</option> --}}
                                                 </select>
@@ -110,7 +110,7 @@
                                                     </button></a>
                                             </span>
                                         </div>
-                                        <small class="text-muted"><i>*Default ,this date</i></small>
+                                        <small class="text-muted"><i>*Default ,tanggal ini</i></small>
                                     </div>
                                 </div>
                             </form>
@@ -201,7 +201,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
-<script src="{{asset('backend/js/consumption/consumption.js')}}"></script>
+<script src="{{asset('backend/js/consumption/consumption1.js')}}"></script>
 
 <script>
     let gallon = {{ $global_setting->gallon }}

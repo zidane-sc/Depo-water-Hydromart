@@ -30,7 +30,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        $data['page_title'] = 'Users Management';
+        $data['page_title'] = 'Pengelola Pengguna';
         $data['users'] = Users::orderBy('id', 'desc')->get();
         return view('user.index', $data);
     }

@@ -245,19 +245,19 @@
                                 @csrf
                                 <div class="col-lg-12">
                                     <div class="form-group  " id="datepicker-date-area">
-                                        <label for="">Backup Logs :</label>
+                                        <label for="">Cadangkan Data :</label>
                                         <br>
-                                        <small>DATE :</small>
+                                        <small>Tanggal :</small>
                                         <div class="input-group">
                                             <div class="input-group-append">
-                                                <span class="input-group-text">From</span>
+                                                <span class="input-group-text">Dari</span>
                                             </div>
                                             <input type="text" name="date_from" id="date1" value="{{date('Y-m-d')}}"
                                                 autocomplete="off" class="datepicker form-control time" required>
 
 
                                             <div class="input-group-append mg-l-10">
-                                                <span class="input-group-text">To</span>
+                                                <span class="input-group-text">Sampai</span>
                                             </div>
                                             <input type="text" name="date_to" id="date2" value="{{date('Y-m-d')}}"
                                                 autocomplete="off" class="datepicker form-control time  mg-r-10"
@@ -269,26 +269,26 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <small>TIME :</small>
+                                    <small>Waktu :</small>
                                     <div class="form-group  " >
                                         <div class="input-group">
                                             <div class="input-group-append">
-                                                <span class="input-group-text">From</span>
+                                                <span class="input-group-text">Dari</span>
                                             </div>
                                             <input type="text" class="timepicker form-control time" name="time_from" id="time1" placeholder="00:00:00"/>
                                             <div class="input-group-append mg-l-10">
-                                                <span class="input-group-text">To</span>
+                                                <span class="input-group-text">Sampai</span>
                                             </div>
                                             <input type="text" class="timepicker form-control time" name="time_to" id="time2"  placeholder="00:00:00"/>
 
                                         </div>
                                     </div>
-                                        <small>(Ph,Tss,Amonia,Cod,Flow Meter)</small>
+<!--                                         <small>(Ph,Tss,Amonia,Cod,Flow Meter)</small> -->
                                     </div>
                                     <div class="form-group">
                                         <button type="submimt" name="" data-toggle="tooltip" data-title="Sql"
                                             class="btn mg-l-20 mg-t-10 btn-teal" id="update-controller">
-                                            <i class="fas fa-database"></i> Backup
+                                            <i class="fas fa-database"></i> Cadangkan
                                         </button>
                                     </div>
                                 </div>
@@ -313,18 +313,18 @@
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="">Reset/Delete Log Data:</label>
+                                    <label for="">Reset/Hapus Log Data:</label>
                                     <div class="input-group">
 
 
                                         <button type="button" class="btn  btn-danger float-right  "
                                             onclick="resetLogs()" data-toggle="tooltip" data-title="Sql"
                                             id="update-controller">
-                                            <i class="fas fa-trash"></i> Reset All Data
+                                            <i class="fas fa-trash"></i> Reset Semua Data
                                         </button>
                                     </div>
-                                    <small class="tx-danger">* Warning !!, This action will remove all sensor data
-                                        permanently,Be Carefull !</small>
+                                    <small class="tx-danger">* Peringatan !!, Tindakan ini akan menghapus semua data sensor
+                                        secara permanen, Berhati-hatilah!</small>
                                 </div>
 
                             </div>

@@ -33,21 +33,20 @@ function submitDate() {
                 $('#status').html(dataCount + ' data : ' + '<span class="tx-12 align-self-center badge badge-danger">No Data Available</span> ')
             }
             dataTotal(response.data.consumption);
-
+console.log(response.data.consumption);
             // Datatable Add
 
 
              // --datatotal
              table2.clear();
              $.each(response.data.consumption.all, function (i, key) {
-             	total_galon = (response.data.consumption.all[i].value_total != 0) ? Math.floor(response.data.consumption.all[i].value_total / gallon) : 0;
                  table2.row.add([
                      i + 1,
                     response.data.consumption.all[i].datetime,
                     response.data.consumption.all[i].value_min,
                     response.data.consumption.all[i].value_max,
                     response.data.consumption.all[i].value_total,
-                    total_galon,
+                    Math.floor(parseFloat(response.data.consumption.all[i].value_total) / gallon),
                  ])
              });
              table2.draw();
@@ -113,7 +112,7 @@ function dataTotal(param) {
             boundaryGap: [0, '5%']
         },
         grid: {
-            x: 60,
+            x: 80,
             y: 20,
             x2: 40,
             y2: 80

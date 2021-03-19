@@ -78,7 +78,7 @@
                             <tr class="ht-70">
 
                                 <td>
-                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Device Status :
+                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Status  Perangkat:
                                         <div id="device-status" class="tx-left  mg-t-5 tx-15">
                                         </div>
                                     </h5>
@@ -101,7 +101,7 @@
                             <tr class="ht-70">
 
                                 <td>
-                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Datetime :
+                                    <h5 class="mg-b-0  mg-l-10 tx-20 " style="   letter-spacing: 1px;">Tanggal & Waktu :
                                         <div class=" tx-left  mg-t-5 tx-15 text-success" id="tstamp">
                                         </div>
                                     </h5>
@@ -156,10 +156,10 @@
     <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
         <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
             <div class="card-body">
-                <span class="tx-bold tx-20  d-block  tx-inverse ">LEVEL TANK 1</span>
+                <span class="tx-bold tx-20  d-block  tx-inverse ">TANK 1</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="level_tank_1">-</span>
-                    <span class="tx-black">%</span>
+                    <span class="tx-black">Liter</span>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->
@@ -167,10 +167,10 @@
     <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
         <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
             <div class="card-body">
-                <span class="tx-bold tx-20  d-block  tx-inverse ">LEVEL TANK 2</span>
+                <span class="tx-bold tx-20  d-block  tx-inverse ">TANK 2</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="level_tank_2">-</span>
-                    <span class="tx-black">%</span>
+                    <span class="tx-black">Liter</span>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->
@@ -178,7 +178,7 @@
     <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
         <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
             <div class="card-body">
-                <span class="tx-bold tx-20  d-block  tx-inverse ">FLOW RATE</span>
+                <span class="tx-bold tx-20  d-block  tx-inverse ">TINGKAT ALIRAN</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="flow_rate">-</span>
                     <span class="tx-black">L/mnt</span>
@@ -189,7 +189,7 @@
     <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
         <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
             <div class="card-body">
-                <span class="tx-bold tx-20  d-block  tx-inverse ">TOTALIZER</span>
+                <span class="tx-bold tx-20  d-block  tx-inverse ">KONSUMSI AIR</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="totalizer">-</span>
                     <span class="tx-black">Liter</span>
@@ -200,10 +200,10 @@
     <div class="col-lg-4 col-xs-12 col-sm-12  mg-t-30">
         <div class="card shadow-base card__one bd-0 ht-100p rounded-20  animated fadeIn">
             <div class="card-body">
-                <span class="tx-bold tx-20  d-block  tx-inverse ">TOTAL GALLONS</span>
+                <span class="tx-bold tx-20  d-block  tx-inverse ">TOTAL GALLON</span>
                 <div class="d-block tx-center">
                     <span class="tx-center tx-50 tx-bold   tx-gray-800 hover-info tx-digital" id="total_gallons">-</span>
-                    <span class="tx-black">Gallons</span>
+                    <span class="tx-black">Gallon</span>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->

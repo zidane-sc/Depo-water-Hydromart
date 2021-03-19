@@ -30,7 +30,7 @@ class DepartementController extends Controller
     public function index()
     {
 
-        $data['page_title'] = 'Management Departements';
+        $data['page_title'] = 'Pengelola Departemen';
         $data['departements'] = Departements::paginate(10);
         return view('departement.index', $data);
     }

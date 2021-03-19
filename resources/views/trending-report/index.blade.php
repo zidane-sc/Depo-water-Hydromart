@@ -63,29 +63,29 @@
                 <div class="col-lg-12" style="z-index:99">
                     <div class="card mg-b-20 rounded-20  tx-black shadow animated fadeInUp">
                         <div class="card-header  rounded-top-20  tx-medium bd-0 stx-18">
-                            <i class="ion icon ion-calendar"></i> Filter Report
+                            <i class="ion icon ion-calendar"></i> Filter Laporan
                         </div>
                         <div class="card-body ">
                             <div class="row row-sm">
                                 <div class="col-xl-4">
                                     <div class="form-group ">
-                                        <label> period :</label>
+                                        <label> periode :</label>
                                         <select class="form-control select2" data-placeholder="Choose one"
                                             id="daterange">
-                                            <option value="day">Daily</option>
-                                            <option value="month">Monthly</option>
+                                            <option value="day">Harian</option>
+                                            <option value="month">Bulanan</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-xl-4" style="z-index: 9;">
                                     <div class="form-group  " id="datepicker-date-area">
-                                        <label> Date :</label>
+                                        <label> Tanggal :</label>
                                         <input type="text" name="date" id="date" value="{{date('Y-m-d')}}"
                                             autocomplete="off" class="datepicker form-control time" required>
                                     </div>
                                     <div class="form-group hilang" id="datepicker-month-area">
-                                        <label> Month :</label>
+                                        <label> Tanggal :</label>
                                         <input type="text" name="date" id="month" value="{{date('Y-m')}}"
                                             autocomplete="off" class="datepicker-month form-control   time" required>
                                     </div>
@@ -140,7 +140,16 @@
                                                     <img src="{{asset('backend/images/icon/water.png')}}"
                                                         class="ht-40 rounded-circle" alt="">
                                                     <span class="tx-bold mg-b-0 mg-t-10 mg-l-5 "
-                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">{{$tag['display_name']}}
+                                                        style="text-shadow: -3px 2px 9px #0000;letter-spacing: 1px;">
+                                                    @if ($tag['display_name'] == 'Tank1')
+                                                    TANK 1
+                                                    @elseif ($tag['display_name'] == 'Tank2')
+                                                    TANK 2
+                                                    @elseif ($tag['display_name'] == 'FLOW RATE')
+                                                    TINGKAT ALIRAN
+                                                    @elseif ($tag['display_name'] == 'TOTALIZER')
+                                                    KONSUMSI AIR
+                                                    @endif
                                                     </span>
                                                 </div>
                                                 {{-- <p class="text-right hidden-sm-down" style="margin-top: -40px;">Tuesday ,21 April 2020</p> --}}

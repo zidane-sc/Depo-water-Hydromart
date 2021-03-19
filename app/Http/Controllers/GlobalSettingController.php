@@ -57,7 +57,7 @@ class GlobalSettingController extends Controller
 
     public function database()
     {
-        $data['page_title'] = "Database Setting";
+        $data['page_title'] = "Pengaturan Database";
 
         $lastData = \App\GlobalSetting::orderBy('id', 'desc')->first();
 
@@ -95,7 +95,7 @@ class GlobalSettingController extends Controller
 
     public function other()
     {
-        $data['page_title'] = "Other Setting";
+        $data['page_title'] = "Pengaturan Lainnya";
 
         $lastData = \App\GlobalSetting::orderBy('id', 'desc')->first();
 

@@ -23,7 +23,7 @@ class TrendingReportController extends Controller
 
     public function index()
     {
-        $data['page_title'] = 'Trending Report';
+        $data['page_title'] = 'Laporan Trending';
         $data['tags'] = [
             ['tag_name' => 'ultrasonic_sensor11', 'display_name' => 'Tank1'],
             ['tag_name' => 'ultrasonic_sensor12', 'display_name' => 'Tank2'],

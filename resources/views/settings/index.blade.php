@@ -163,9 +163,9 @@
                             <div class="card-body d-flex">
                                 <img src="{{asset('backend/images/icon/users.png')}}" class="img-fluid ht-50" alt="">
                                 <div class="mg-l-20">
-                                    <span class="tx-bold tx-20  d-block  tx-inverse ">Users</span>
-                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Create, Read, Update,
-                                        Delete user </span>
+                                    <span class="tx-bold tx-20  d-block  tx-inverse ">Pengguna</span>
+                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Buat, Baca, Perbarui,
+                                         Hapus Pengguna </span>
                                 </div>
                             </div><!-- card-body -->
                         </div><!-- card -->
@@ -179,9 +179,9 @@
                                 <img src="{{asset('backend/images/icon/departement-2.png')}}" class="img-fluid ht-50"
                                     alt="">
                                 <div class="mg-l-20 dpinfo">
-                                    <span class="tx-bold tx-20   tx-inverse  ">Departments</span>
-                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Create, Read, Update,
-                                        Departements and Privileges</span>
+                                    <span class="tx-bold tx-20   tx-inverse  ">Departemen</span>
+                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Buat, Baca, Perbarui,
+                                        Departemen dan Hak istimewa</span>
                                 </div>
                             </div><!-- card-body -->
                         </div><!-- card -->
@@ -196,8 +196,8 @@
                                 <img src="{{asset('backend/images/icon/database.png')}}" class="img-fluid ht-50" alt="">
                                 <div class="mg-l-20">
                                     <span class="tx-bold tx-20  d-block  tx-inverse ">Database</span>
-                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Host Setting, User Name,
-                                        Database, Logger Interval,Backup</span>
+                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Pengaturan Host, Nama Pengguna,
+                                        Database, Interval Pencatat, Cadangkan</span>
                                 </div>
                             </div><!-- card-body -->
                         </div><!-- card -->
@@ -247,8 +247,8 @@
                             <div class="card-body d-flex">
                                 <img src="{{asset('backend/images/icon/other.png')}}" class="img-fluid ht-50" alt="">
                                 <div class="mg-l-20">
-                                    <span class="tx-bold tx-20  d-block  tx-inverse ">Other</span>
-                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Plant Name</span>
+                                    <span class="tx-bold tx-20  d-block  tx-inverse ">Lainnya</span>
+                                    <span class="tx-bold tx-11  d-block mg-b-5 tx-gray-500 ">Nama Tempat</span>
                                 </div>
                             </div>
                         </div>

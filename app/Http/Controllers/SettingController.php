@@ -14,7 +14,7 @@ class SettingController extends Controller
     }
     public function index()
     {
-        $data['page_title'] = 'Settings';
+        $data['page_title'] = 'Pengaturan';
         return view('settings.index', $data);
     }
 

@@ -10,7 +10,7 @@ class ConsumptionController extends Controller
 {
     public function index()
     {
-        $data['page_title'] = 'Consumption';
+        $data['page_title'] = 'Konsumsi';
         $data['date'] = date('Y-m-d');
         $data['month'] = date('Y-m');
         $data['year'] = date('Y');
@@ -48,8 +48,7 @@ class ConsumptionController extends Controller
        
             MAX(value) OVER (PARTITION BY date_trunc('" . $daterange . "',created_at),device_name ORDER BY id  desc ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) as value_max,
             MIN(value) OVER (PARTITION BY date_trunc('" . $daterange . "',created_at),device_name ORDER BY id  desc ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) as value_min
-			FROM log_values where tag_name = 'totalizer' AND created_at BETWEEN '" . $date_from . "' AND '" . $date_to . "'
-            ) as dm
+			FROM log_values where tag_name = 'totalizer' AND created_at BETWEEN '" . $date_from . "' AND '" . $date_to . "') as dm
             "))
             //          LAST_VALUE(energy_kwh_total) OVER (PARTITION BY date_trunc('" . $daterange . "',created_at),device_id ORDER BY id  desc ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) as kwh_exist,
             // LAST_VALUE(energy_kvarh_total) OVER (PARTITION BY date_trunc('" . $daterange . "',created_at),device_id ORDER BY id  desc ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) as kvarh_exist,
@@ -88,7 +87,7 @@ class ConsumptionController extends Controller
                 array_push($consumptionTstamp, date('H:i', strtotime($log->created_at)));
             }
 
-            array_push($value_total, number_format($log->value_total,2,'.','.'));
+            array_push($value_total, number_format($log->value_total,2,'.',''));
             array_push($value_max, number_format($log->value_max,2,'.','.'));
             array_push($value_min, number_format($log->value_min,2,'.','.'));
         }
@@ -102,9 +101,9 @@ class ConsumptionController extends Controller
                     'id'=> $i->id, 
                     'device_name'=> $i->device_name,
                     'datetime'=> $i->created_at,
-                    'value_min'=> number_format($i->value_min,2,'.','.'),
-                    'value_max'=> number_format($i->value_max,2,'.','.'),
-                    'value_total'=> number_format($i->value_total,2,'.','.'),
+                    'value_min'=> number_format($i->value_min,2,'.',','),
+                    'value_max'=> number_format($i->value_max,2,'.',','),
+                    'value_total'=> number_format($i->value_total,2,'.',''),
                 ];
         }, $logs->toArray());
 

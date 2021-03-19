@@ -97,14 +97,14 @@
                         <div class="row row-sm">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="">Plant Name :</label>
+                                    <label for="">Nama Tempat :</label>
                                     <div class="input-group">
                                         <input type="text" name="plant_name" class="form-control"
                                             placeholder="plant name" value="{{$global_setting->plant_name}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Location :</label>
+                                    <label for="">Lokasi :</label>
                                     <div class="input-group">
                                         <input type="text" name="location" class="form-control"
                                             placeholder="location name" value="{{$global_setting->location}}">
@@ -124,7 +124,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Litre per gallon :</label>
+                                    <label for="">Liter per gallon :</label>
                                     <div class="input-group">
                                         <input type="number" name="gallon" class="form-control"
                                             placeholder="" value="{{$global_setting->gallon}}">
@@ -133,8 +133,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn  btn-magenta float-right mg-l-10" id="update-controller">UPDATE
-                            SETTING</button>
+                        <button type="submit" class="btn  btn-magenta float-right mg-l-10" id="update-controller">Perbarui Pengaturan</button>
 
 
 
