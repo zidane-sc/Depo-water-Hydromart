@@ -11,13 +11,13 @@ const schedule = require('node-schedule');
 const axios = require('axios').default;
 
 let allValues = []
-const job = schedule.scheduleJob('*/5 * * * * *', function () {
+const job = schedule.scheduleJob('*/60 * * * * *', function () {
     console.log(allValues.length)
     console.log(allValues)
     if(allValues.length > 0){
         axios.post('https://hydromart-galaxy.grooject.com/api/webhook-save', allValues)
             .then(function (response) {
-                console.log(response);
+                console.log(response.data);
                 allValues = []
             })
             .catch(function (error) {

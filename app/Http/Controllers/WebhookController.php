@@ -22,11 +22,11 @@ class WebhookController extends Controller
 				$log->value = ((float)$request->value / 60) + ($old_logs->value ?? 0);
             }	
         	$this->CurlNya($log);
-            $log->save();
+            // $log->save();
         }
         $this->CurlNya($request->all());
         
-        \App\LogValue::create($request->all());
+        // \App\LogValue::create($request->all());
         return $request->all();
     }
 
