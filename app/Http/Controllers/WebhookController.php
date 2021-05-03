@@ -17,7 +17,7 @@ class WebhookController extends Controller
             $log->device_name = $request->device_name;
             $log->tag_name = "totalizer";
             $log->project_id = $request->project_id;
-        	if($today == date("H:i:s", strtotime("00:00:00"))){
+        	if($today == date("H:i:s", strtotime("23:59:59"))){
             	$log->value = 0;
             }else{
 				$log->value = ((float)$request->value / 60) + ($old_logs->value ?? 0);
