@@ -9,7 +9,6 @@ class WebhookController extends Controller
 {
     public function WebHook(Request $request)
     {
-        $this->CurlNya($request->all());
    		if ($request->tag_name == "liter_permenit1") {
             $old_logs = \App\LogValue::latest("created_at")->where("tag_name", "totalizer")->first();
             $today = date("H:i:s");
@@ -25,6 +24,8 @@ class WebhookController extends Controller
         	$this->CurlNya($log);
             $log->save();
         }
+        $this->CurlNya($request->all());
+        
         \App\LogValue::create($request->all());
         return $request->all();
     }
