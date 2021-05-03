@@ -11,7 +11,7 @@ const schedule = require('node-schedule');
 const axios = require('axios').default;
 
 let allValues = []
-const job = schedule.scheduleJob('*/60 * * * * *', function () {
+const job = schedule.scheduleJob('*/300 * * * * *', function () {
     console.log(allValues.length)
     console.log(allValues)
     if(allValues.length > 0){
