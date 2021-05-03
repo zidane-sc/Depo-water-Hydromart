@@ -8,12 +8,23 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 var clear = require('clear');
 const schedule = require('node-schedule');
+const axios = require('axios').default;
 
 let allValues = []
 const job = schedule.scheduleJob('*/5 * * * * *', function () {
     console.log(allValues.length)
     console.log(allValues)
-    allValues = []
+    if(allValues.length > 0){
+        axios.post('https://hydromart-galaxy.grooject.com/api/webhook-save', allValues)
+            .then(function (response) {
+                console.log(response);
+                allValues = []
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+   
     // console.log('The answer to life, the universe, and everything!');
 });
 function search(nameKey, myArray) {
