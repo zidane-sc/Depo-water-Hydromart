@@ -7,6 +7,22 @@ app.use(bodyParser.json());
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 var clear = require('clear');
+const schedule = require('node-schedule');
+
+let allValues = []
+const job = schedule.scheduleJob('*/5 * * * * *', function () {
+    console.log(allValues)
+    allValues = []
+    // console.log('The answer to life, the universe, and everything!');
+});
+function search(nameKey, myArray) {
+  for (var i = 0; i < myArray.length; i++) {
+    if (myArray[i].tag_name === nameKey) {
+      // console.log(nameKey, "TRUE");
+      return true;
+    }
+  }
+}
 
 
 io.origins((origin, callback) => {
@@ -21,10 +37,26 @@ server.listen(process.env.PORT || port, '0.0.0.0', function () {
 // konversi dari rest do\i broadcast ke socketio
 app.post("/depo-air", function (req, res) {
     // clear();
-    console.log(req.body);
+    // console.log(req.body);
+    let searchVal = search(req.body.tag_name,allValues)
+    if (typeof searchVal === "undefined") {
+        allValues.push(req.body)
+    }else if (searchVal === true){
+        allValues = allValues.map(
+            (obj) => {
+                if(obj.tag_name === req.body.tag_name){
+                    return req.body
+                }else{
+                    return obj
+                }
+            }
+        );
+    }
+    console.log(req.body.tag_name,searchVal)
     io.to("all").emit("air-depo", req.body);
     res.send("DEPO AIR OK");
 });
+
  
 
 io.on("connection", function (socket) {
