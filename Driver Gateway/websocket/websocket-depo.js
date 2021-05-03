@@ -11,6 +11,7 @@ const schedule = require('node-schedule');
 
 let allValues = []
 const job = schedule.scheduleJob('*/5 * * * * *', function () {
+    console.log(allValues.length)
     console.log(allValues)
     allValues = []
     // console.log('The answer to life, the universe, and everything!');
@@ -52,7 +53,6 @@ app.post("/depo-air", function (req, res) {
             }
         );
     }
-    console.log(req.body.tag_name,searchVal)
     io.to("all").emit("air-depo", req.body);
     res.send("DEPO AIR OK");
 });
