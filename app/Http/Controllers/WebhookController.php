@@ -30,6 +30,23 @@ class WebhookController extends Controller
         return $request->all();
     }
 
+    public function WebHookSave(Request $request){
+        try {
+            foreach ($request->all() as $value) {
+                \App\LogValue::create($value);
+            }
+            return [
+                'message'=>"save success",
+                'data'=> $request->all()
+            ];
+
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th;
+        }
+       
+    }
+
     private function CurlNya($req)
     {
 
