@@ -303,11 +303,11 @@
 
         $('#tstamp').text(date.getFullYear().toString() +'-'+ pad2(date.getMonth() + 1) +'-'+ pad2( date.getDate()) +' '+ pad2( date.getHours() ) +':'+ pad2( date.getMinutes() ) +':'+ pad2( date.getSeconds() ))
         if (data.tag_name === 'ultrasonic_sensor11') {
-            $('#level_tank_1').text(fix_val(data.value,0))
+            $('#level_tank_1').text(fix_val(data.value, 0))
         } else if (data.tag_name === 'ultrasonic_sensor12') {
-            $('#level_tank_2').text(fix_val(data.value,0))
+            $('#level_tank_2').text(fix_val(data.value, 0))
         } else if (data.tag_name === 'liter_permenit1') {
-            $('#flow_rate').text(fix_val(data.value,0))
+            $('#flow_rate').text(fix_val(data.value, 0))
         } else if (data.tag_name === 'totalizer'){
             $('#totalizer').text(fix_val(data.value, 0))
             $('#total_gallons').text(Math.floor(data.value / {{ $global_setting->gallon }}))

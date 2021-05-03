@@ -171,10 +171,10 @@
                             <table id="table-total" class="table table-bordered table-hover">
                                 <thead>
                                     <th width="1%">No</th>
-                                    <th width="15%">Date</th>
-                                    <th>Totalizer Min</th>
-                                    <th>Totalizer Max</th>
-                                    <th>Totalizer</th>
+                                    <th width="15%">Tanggal</th>
+                                    <th>Konsumsi Air Min</th>
+                                    <th>Konsumsi Air Max</th>
+                                    <th>Konsumsi Air</th>
                                     <th>Gallon</th>
                                 </thead>
                                 <tbody>

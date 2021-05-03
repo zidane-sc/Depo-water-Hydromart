@@ -43,9 +43,9 @@ class DashboardController extends Controller
         //     $totalizer += ($dataLog->flow_meter/3600)*60;
         // }
         // $data['totalizer'] = number_format($totalizer,1,',','.');
-
-
-
+		
+		// $data['pHa'] = \App\Logvalue::orderBy('created_at','desc')->where('tag_name','pHa')->pluck('value')->first();
+		// dd($data);
 
 
         $data['users'] = Users::paginate(5);
