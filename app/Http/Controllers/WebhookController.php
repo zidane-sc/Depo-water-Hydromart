@@ -16,17 +16,24 @@ class WebhookController extends Controller
             $log->device_name = $request->device_name;
             $log->tag_name = "totalizer";
             $log->project_id = $request->project_id;
-        	if($today == date("H:i:s", strtotime("23:59:59"))){
+        	if($today == date("H:i:s", strtotime("23:00:00"))){
             	$log->value = 0;
             }else{
 				$log->value = ((float)$request->value / 60) + ($old_logs->value ?? 0);
             }	
         	$this->CurlNya($log);
-            // $log->save();
+			if($log->value != $old_logs->value){
+            $log->save();
+            }
+        }
+    	if($request->tag_name == "liter_permenit1"){
+        	if($request->value > 0){
+           		$this->CurlNya($request->all());
+        
+       	 		\App\LogValue::create($request->all());
+            }
         }
         $this->CurlNya($request->all());
-        
-        // \App\LogValue::create($request->all());
         return $request->all();
     }
 
