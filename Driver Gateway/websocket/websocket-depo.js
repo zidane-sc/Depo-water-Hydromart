@@ -49,7 +49,7 @@ server.listen(process.env.PORT || port, '0.0.0.0', function () {
 // konversi dari rest do\i broadcast ke socketio
 app.post("/depo-air", function (req, res) {
     // clear();
-    // console.log(req.body);
+    console.log(req.body);
     let searchVal = search(req.body.tag_name,allValues)
     if (typeof searchVal === "undefined") {
         allValues.push(req.body)
