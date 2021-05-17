@@ -27,6 +27,18 @@ const job = schedule.scheduleJob('*/1 * * * *', function () {
    
     // console.log('The answer to life, the universe, and everything!');
 });
+
+schedule.scheduleJob('59 23 * * *', function () {
+    axios.post('https://hydromart-galaxy.grooject.com/api/resetTotalizer')
+         .then(function (response) {
+              console.log(response.data);
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
+    // console.log('The answer to life, the universe, and everything!');
+});
+
 function search(nameKey, myArray) {
   for (var i = 0; i < myArray.length; i++) {
     if (myArray[i].tag_name === nameKey) {

@@ -66,4 +66,5 @@ Route::get('totalizer', 'SensorController@summaryTotalizer');
 // --- WEBHOOK
 Route::post('webhook', 'WebhookController@WebHook');
 Route::post('webhook-save', 'WebhookController@webhookSave');
+Route::post('resetTotalizer', 'WebhookController@resetTotalizer');
 
