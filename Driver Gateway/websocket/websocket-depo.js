@@ -15,7 +15,7 @@ const job = schedule.scheduleJob('*/1 * * * *', function () {
     console.log(allValues.length)
     console.log(allValues)
     if(allValues.length > 0){
-        axios.post('https://hydromart-galaxy.grooject.com/api/webhook-save', allValues)
+        axios.post('http://depo-water-hydromart.test/api/webhook-save', allValues)
             .then(function (response) {
                 console.log(response.data);
                 allValues = []
@@ -24,12 +24,12 @@ const job = schedule.scheduleJob('*/1 * * * *', function () {
                 console.log(error);
             });
     }
-   
+
     // console.log('The answer to life, the universe, and everything!');
 });
 
 schedule.scheduleJob('59 23 * * *', function () {
-    axios.post('https://hydromart-galaxy.grooject.com/api/resetTotalizer')
+    axios.post('http://depo-water-hydromart.test/api/resetTotalizer')
          .then(function (response) {
               console.log(response.data);
           })
@@ -80,7 +80,7 @@ app.post("/depo-air", function (req, res) {
     res.send("DEPO AIR OK");
 });
 
- 
+
 
 io.on("connection", function (socket) {
     let from = socket.handshake.query['from'];

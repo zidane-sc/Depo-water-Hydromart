@@ -25,7 +25,7 @@ class WebhookController extends Controller
     	if($request->tag_name == "liter_permenit1"){
         	if($request->value > 0){
            		$this->CurlNya($request->all());
-        
+
        	 		\App\LogValue::create($request->all());
             }
         }
@@ -47,7 +47,7 @@ class WebhookController extends Controller
             //throw $th;
             return $th;
         }
-       
+
     }
 
 	public function resetTotalizer(Request $request){
@@ -64,7 +64,7 @@ class WebhookController extends Controller
             //throw $th;
             return $th;
         }
-       
+
     }
 
     private function CurlNya($req)
